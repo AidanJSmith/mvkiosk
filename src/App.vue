@@ -24,7 +24,7 @@
 <script>
 /*
 To-Do:
-TopNav: Integrate Weather. Fonts
+TopNav: Fonts
 BottomNav: Real Items.
 Main: Tiles
 

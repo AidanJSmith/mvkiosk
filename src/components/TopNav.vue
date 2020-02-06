@@ -37,7 +37,7 @@ export default {
       })
         .then(response => response.json())
         .then(data => {
-          this.temp=Math.round(data["main"]["temp"]*1.8 - 459.67,2) + " °F"
+          this.temp=Math.round(data["main"]["temp"]*1.8 - 459.67,2) + "°F"
         })
         .catch(error => console.error(error))
     }
@@ -47,7 +47,7 @@ export default {
       this.getWeather();
   },
   created () {
-    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 1000*30)
+    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 1000*(61-new Date().getSeconds()))
     setInterval(() => this.getWeather(), 1000*360)
   }
 }
