@@ -8,7 +8,7 @@
               {{time}} | Code by Aidan Smith
              </mdb-row>
              <mdb-row>
-             Welcome to MVHS | 87 degrees.
+             Welcome to MVHS|{{temp}}
              </mdb-row>
         </mdb-col>
        </mdb-navbar-nav>
@@ -27,21 +27,28 @@ export default {
   data()  {
     return {
       time : "123",
+      temp : "0F",
+    }
+  },
+  methods : {
+    getWeather : function() {
+      fetch('https://api.openweathermap.org/data/2.5/weather?lat=37.386051&lon=-122.083855&APPID=2c7a2dff5dba8638f6700dc8c15cab25', {
+        method : "GET",
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.temp=Math.round(data["main"]["temp"]*1.8 - 459.67,2) + " °F"
+        })
+        .catch(error => console.error(error))
     }
   },
   mounted() {
       this.time= new Date().toLocaleTimeString().slice(0,-6);
-     fetch('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=2c7a2dff5dba8638f6700dc8c15cab25', {
-       method : "GET",
-     })
-      .then(response => response)
-      .then(data => {
-        console.log(data) // Prints result from `response.json()` in getRequest
-      })
-      .catch(error => console.error(error))
+      this.getWeather();
   },
   created () {
-    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 1000*30)     
+    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 1000*30)
+    setInterval(() => this.getWeather(), 1000*360)
   }
 }
 </script>
