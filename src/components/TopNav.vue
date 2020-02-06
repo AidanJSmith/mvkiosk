@@ -1,23 +1,20 @@
+
+
 <template>
-  <mdb-navbar color="sunny-morning-gradient" class=" py-4">
+  <mdb-navbar color="sunny-morning-gradient" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}" class="">
     <mdb-navbar-nav nav fill class="d-flex">
-      <mdb-nav-item class="">
-        <mdb-col>
-             <mdb-row style="font-size:small">
-              Time, eventually. Maybe other stuff. Code by Aidan Smith.
+        <mdb-col style="text-align:left">
+             <mdb-row class="" v-resize-text="{ratio:2,  maxFontSize: '10em', delay: 0}">
+              6:17 | Code by Aidan Smith.
              </mdb-row>
-             <mdb-row style="font-size:1.5em">
-             Welcome to MVHS, it's X degrees out today.
+             <mdb-row>
+             Welcome to MVHS | 87 degrees.
              </mdb-row>
         </mdb-col>
-        </mdb-nav-item>
        </mdb-navbar-nav>
      <mdb-navbar-nav nav right class="d-flex">
-      <mdb-nav-item class="">
-        <mdb-icon icon="map" size="3x" />
-      </mdb-nav-item>
+        <mdb-icon icon="map" size="2x" />
      </mdb-navbar-nav>
-   
   </mdb-navbar>
 </template>
 
