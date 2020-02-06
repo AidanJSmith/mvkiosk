@@ -1,8 +1,8 @@
 <template>
-  <div class="bottomNav position-fixed" fill>
-        <mdb-navbar  color="sunny-morning-gradient" v-resize-text="{ratio:1,  maxFontSize: '30em', delay: 0}">
-            <mdb-navbar-nav nav class="d-flex flex-fill justify-contents-around">
-                <mdb-btn-group class="nowrap d-flex justify-contents-around flex-fill">
+  <div class="bottomNav position-fixed" fill d-flex>
+        <mdb-navbar color="sunny-morning-gradient" style="font-family:" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}">
+            <mdb-navbar-nav nav fill class="d-flex">
+                <mdb-btn-group class="d-flex justify-content-around">
 
                 </mdb-btn-group>
             </mdb-navbar-nav>
@@ -15,7 +15,7 @@ export default {
     name:"BottomNav",
     props: { 
         "items":Array
-    },
+    }
 }
 </script>
 
