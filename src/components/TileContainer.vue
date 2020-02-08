@@ -65,7 +65,7 @@ export default {
 #start {
     background-color: rgb(255, 219, 164);
     width:90vw;
-    margin-top: 10vw;
+    margin-top: 10vh;
     margin-left:5vw;
     align-self:center;
     align-content: center;
