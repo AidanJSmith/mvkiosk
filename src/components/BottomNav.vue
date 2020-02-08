@@ -3,7 +3,7 @@
         <mdb-navbar color="sunny-morning-gradient" style="font-family:" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}">
             <mdb-navbar-nav nav fill class="d-flex">
                 <mdb-btn-group class="d-flex justify-content-around">
-
+                    <mdb-button color="danger"></mdb-button>
                 </mdb-btn-group>
             </mdb-navbar-nav>
         </mdb-navbar>

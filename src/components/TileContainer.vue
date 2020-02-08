@@ -1,8 +1,9 @@
 <template>
-  <mdb-masonry  id="start" :numCols="3" :maxHeight="1000" style="translatex:18vmin;height: 400vh;"  v-resize-text="{ratio:2,  maxFontSize: '5em', delay: 0}">
-     <mdb-masonry-item :itemStyle="{'width':'25vw'}" v-for="event in events"  :key="event.name" ><EventTile :date="event.date" :description="event.description"/></mdb-masonry-item>
-    <mdb-masonry-item :itemStyle="{'width':'25vw'}" v-for="photo in photos"  :key="photo.name" ><PhotoTile  :caption="photo.caption"  :image="photo.imgurl"/></mdb-masonry-item>
-    <mdb-masonry-item :itemStyle="{'width':'25vw'}" v-for="article in articles"  :key="article.name"><ArticleTile :body="article.body" :title="article.name"  :image="article.imgurl"/></mdb-masonry-item>
+  <mdb-masonry  id="start" :numCols="2" :maxHeight="1000" style="translatex:18vmin;height: 14400vh;"  v-resize-text="{ratio:2,  maxFontSize: '5em', delay: 0}">
+     <mdb-masonry-item :itemStyle="{'width':'18vw'}" v-for="event in events"  :key="event.name" ><EventTile :date="event.date" :description="event.description"/></mdb-masonry-item>
+    <mdb-masonry-item :itemStyle="{'width':'18vw'}" v-for="photo in photos"  :key="photo.name" ><PhotoTile  :caption="photo.caption"  :image="photo.imgurl"/></mdb-masonry-item>
+    <mdb-masonry-item :itemStyle="{'width':'18vw'}" v-for="article in articles"  :key="article.name"><ArticleTile :body="article.body" :title="article.name"  :image="article.imgurl"/></mdb-masonry-item>
+    
   </mdb-masonry>
 </template>
 
@@ -50,16 +51,17 @@ export default {
     width:100vw;
     overflow: hidden;
     align-self:center;
+    justify-content: center;
 }
   .masonry-with-columns div {
     overflow: hidden;  
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(179, 44, 44, 0);
+    background: rgba(255, 211, 16, 0);
     color: white;
     font-weight: 900;
-    margin: .25vw;
+    margin: .18vw;
   }
 
 </style>

@@ -44,7 +44,7 @@ export default {
             },{
               type:"photo",
               name: "HowlingDog2",
-              imgurl:`https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-uwJjVacndos%2FUR_NavxE8_I%2FAAAAAAAAAFM%2Ff7qjarjdjrg%2Fs1600%2Fcool%2Bhd%2Bbackgrounds%2B28.jpg&f=1&nofb=1`,
+              imgurl:`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.wxzrMhnl1pbYoaCm6Z8mIAHaDH%26pid%3DApi&f=1`,
               caption:`4 dead in horrid HTML debacle.`
             },{
               type:"photo",
@@ -75,7 +75,7 @@ export default {
               type:"article",
               name: "OwO, says famous Box?",
               imgurl:`https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-wEikZinkD9k%2FTmfwwbp9rLI%2FAAAAAAAAA2A%2Ft7TnAsLZGeU%2Fs1600%2Fboxman_amazon_www.Vvallpaper.net.jpg&f=1&nofb=1`,
-              body:`A joyous family of Boxes walk... I hope.`
+              body:`A joyous family of Boxes walk... I hope.A joyous family of Boxes walk... I hope.A joyous family of Boxes walk... I hope.A joyous family of Boxes walk... I hope.A joyous family of Boxes walk... I hope.A joyous family of Boxes walk... I hope.`
             },{
               type:"article",
               name: "OwO, says famous Box.!",

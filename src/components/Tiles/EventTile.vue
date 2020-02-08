@@ -2,7 +2,7 @@
   <mdb-card color="amber darken-1" class="align-contents-center" style="margin:auto" v-resize-text="{ratio:.75,  maxFontSize: '.2em', delay: 0}">
             <div style="font-size:3vw" >{{convertDay}}</div>
             <div style="font-size:2vw">{{description}}</div>
-          <mdb-icon size="6x" far icon="calendar-check" style="font-size:25vw" />
+          <mdb-icon size="6x" far icon="calendar-check" style="font-size:20vw" />
             <div>{{convertHour}}</div>
   </mdb-card>
 </template>
