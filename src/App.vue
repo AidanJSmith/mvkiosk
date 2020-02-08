@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <TopNav msg="Time"/>
-      <TileContainer/>
-    <BottomNav :items="[]"/>
+      <TileContainer :cards="currentCards"/>
+    <BottomNav/>
   </div>
 </template>
 
@@ -28,7 +28,12 @@ export default {
     TopNav,
     BottomNav,
     TileContainer
-  }
+  },
+  data() {
+        return {
+            currentCards : ["Dog","cat"]
+        }
+    }
 }
 </script>
 
