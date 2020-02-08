@@ -7,7 +7,7 @@
       <mdb-row>
         <mdb-card-body>
           <mdb-card-title>{{title}}</mdb-card-title>
-          <mdb-card-text class="grey-text">{{body}}</mdb-card-text>
+          <mdb-card-text class="white-text">{{body}}</mdb-card-text>
         </mdb-card-body>
         </mdb-row>
     </mdb-col>
