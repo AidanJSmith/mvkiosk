@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.4.4",
+    "firebase": "^7.8.1",
     "mdbvue": "^6.4.0",
     "vue": "^2.6.10",
-    "vue-resize-text": "^0.1.1"
+    "vue-resize-text": "^0.1.1",
+    "vuefire": "^2.2.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
@@ -33,7 +35,7 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console" : 0
+      "no-console": 0
     },
     "parserOptions": {
       "parser": "babel-eslint"
