@@ -91,6 +91,14 @@ export default {
               name: "College: Unfair.",
               description:`European student revolts lead to the downfall of Europe`,
               date:'2021-04-11T10:30:30Z'
+            },{
+              type:"quote",
+              quote:`I gave my name to a rice company`,
+              speaker: 'Ghandi',
+            },{
+              type:"quote",
+              quote:`Whether 'tis nobler in the mind to bear the slings and arrows of outrageous fortune...`,
+              speaker: 'Shakespeare',
             }]
         }
     }

@@ -5,10 +5,10 @@
     <mdb-navbar-nav nav fill class="d-flex">
         <mdb-col style="text-align:left">
              <mdb-row class="" v-resize-text="{ratio:2,  maxFontSize: '10em', delay: 0}">
-              {{time}} | Code by Aidan Smith
+              {{time}} | {{getDate}}   | Code by Aidan Smith
              </mdb-row>
              <mdb-row>
-             Welcome to MVHS|{{temp}}
+             MVHS Kiosk |{{temp}}
              </mdb-row>
         </mdb-col>
        </mdb-navbar-nav>
@@ -47,8 +47,13 @@ export default {
       this.getWeather();
   },
   created () {
-    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 1000*(61-new Date().getSeconds()))
+    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 2000)
     setInterval(() => this.getWeather(), 1000*360)
+  }, 
+  computed : {
+    getDate() {
+      return new Date().toISOString().split('.')[0].split('T')[0];
+    }
   }
 }
 </script>
