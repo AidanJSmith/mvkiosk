@@ -81,6 +81,16 @@ export default {
               name: "OwO, says famous Box.!",
               imgurl:`https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-wEikZinkD9k%2FTmfwwbp9rLI%2FAAAAAAAAA2A%2Ft7TnAsLZGeU%2Fs1600%2Fboxman_amazon_www.Vvallpaper.net.jpg&f=1&nofb=1`,
               body:`A joyous family of Boxes walk... I hope.`
+            },{
+              type:"event",
+              name: "Timmy's third birthday party.",
+              description:`A joyous family of Boxes walk... I hope.`,
+              date:'2022-05-12T10:20:30Z'
+            },{
+              type:"event",
+              name: "College: Unfair.",
+              description:`European student revolts lead to the downfall of Europe`,
+              date:'2021-04-11T10:30:30Z'
             }]
         }
     }

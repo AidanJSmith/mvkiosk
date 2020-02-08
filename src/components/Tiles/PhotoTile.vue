@@ -1,13 +1,7 @@
 <template>
-  <mdb-card color="amber darken-1" class="align-contents-center"  v-resize-text="{ratio:2,  maxFontSize: '5em', delay: 0}">
-    <mdb-col>
-      <mdb-row>
-          <mdb-card-image :src="image" alt="Card image cap"></mdb-card-image>
-      </mdb-row>
-         <mdb-row>
-          <i v-resize-text="{ratio:2,  maxFontSize: '2em', delay: 0}">Caption: {{caption}}</i>
-        </mdb-row>
-    </mdb-col>
+  <mdb-card color="amber darken-1" class="align-contents-center"  v-resize-text="{ratio:2,  maxFontSize: '2vw', delay: 0}">
+        <mdb-card-image :src="image" class="img-fluid" alt="Card image cap"></mdb-card-image>
+        <i style="font-size:1.5vw;text-align:start"><div>Caption: {{caption}}</div></i>
   </mdb-card>
 </template>
 <script>

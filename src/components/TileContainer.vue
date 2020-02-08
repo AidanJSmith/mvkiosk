@@ -1,19 +1,21 @@
 <template>
   <mdb-masonry  id="start" :numCols="3" :maxHeight="1000" style="translatex:18vmin;height: 400vh;"  v-resize-text="{ratio:2,  maxFontSize: '5em', delay: 0}">
+     <mdb-masonry-item :itemStyle="{'width':'25vw'}" v-for="event in events"  :key="event.name" ><EventTile :date="event.date" :description="event.description"/></mdb-masonry-item>
+    <mdb-masonry-item :itemStyle="{'width':'25vw'}" v-for="photo in photos"  :key="photo.name" ><PhotoTile  :caption="photo.caption"  :image="photo.imgurl"/></mdb-masonry-item>
     <mdb-masonry-item :itemStyle="{'width':'25vw'}" v-for="article in articles"  :key="article.name"><ArticleTile :body="article.body" :title="article.name"  :image="article.imgurl"/></mdb-masonry-item>
-    <mdb-masonry-item :itemStyle="{'width':'25vw'}" v-for="photo in photos"  :key="photo.name"><PhotoTile :caption="photo.caption"  :image="photo.imgurl"/></mdb-masonry-item>
-  
   </mdb-masonry>
 </template>
 
 <script>
 import ArticleTile from './Tiles/ArticleTile'
 import PhotoTile from './Tiles/PhotoTile'
+import EventTile from './Tiles/EventTile'
 export default {
     name : "TileContainer",
     components : {
         ArticleTile,
         PhotoTile,
+        EventTile,
     },
     props : {
         "cards" : Array,
@@ -21,7 +23,8 @@ export default {
     data() {
         return {
             articles:[],
-            photos:[]
+            photos:[],
+            events:[]
         }
     },
     mounted() {
@@ -32,6 +35,9 @@ export default {
             }
             if (this.cards[i].type=="photo") {
                 this.photos.push(this.cards[i]);
+            }
+            if (this.cards[i].type=="event") {
+                this.events.push(this.cards[i]);
             }
         }
     }
@@ -53,7 +59,7 @@ export default {
     background: rgba(179, 44, 44, 0);
     color: white;
     font-weight: 900;
-    margin: 0.25vw;
+    margin: .25vw;
   }
 
 </style>
