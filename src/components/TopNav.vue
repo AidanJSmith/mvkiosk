@@ -58,7 +58,7 @@ export default {
       if (screen.width>=1000) {
         return "1.25vw";
       } else if (screen.width>=500) {
-        return "5vw";
+        return "3vw";
       } else if (screen.width>=300) {
         return "3vw";
       } else {

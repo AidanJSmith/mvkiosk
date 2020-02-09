@@ -59,13 +59,18 @@ export default {
     computed : {
         getTranslateY() {
             if (screen.width>1000) {
+                if (screen.height>800) {
+                    return "17vh"
+                }
                 return "15vh";
             } else if(screen.width>=700) {
-                return "12vh";
-            } else if(screen.width>=400) {
-                return "10vh";
+                return "14vh";
+            } else if(screen.width>=500) {
+                return "13vh";
+            } else if (screen.width>=350) {
+                return "10.5vh";
             } else {
-                return "5vh";
+                return "3.9vh";
             }
         }            
     },

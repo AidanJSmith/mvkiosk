@@ -1,12 +1,12 @@
 <template>
   <div id="bottomNav" class=" position-fixed"  d-flex>
         <mdb-navbar color="sunny-morning-gradient" class="d-flex justify-content-center	" >
-				<mdb-btn-group class="btn-group" style="width:100%">
-				<mdb-btn color="unique"  :style="'font-family:Lucida Sans Unicode;width:20%;'" class="rounded" @click.native.prevent="toggleActiveState1" :active="active1">Articles</mdb-btn>
-				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%'" class="rounded" @click.native.prevent="toggleActiveState2" :active="active2">Photos</mdb-btn>
-				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%'" class="rounded" @click.native.prevent="toggleActiveState3" :active="active3">Events</mdb-btn>
-				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%;'" class="rounded" @click.native.prevent="toggleActiveState4" :active="active4">Quotes</mdb-btn>
-				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%;'" class="rounded" @click.native.prevent="toggleActiveState5" :active="active5">Announcements</mdb-btn>
+				<mdb-btn-group class="btn-group" style="width:100%;text-align:center">
+				<mdb-btn color="unique"  :style="'font-family:Lucida Sans Unicode;width:20%;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState1" :active="active1"><mdb-icon size="2x" icon="newspaper" /></mdb-btn>
+				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState2" :active="active2"><mdb-icon size="2x" icon="camera" /></mdb-btn>
+				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState3" :active="active3"><mdb-icon  size="2x" far icon="calendar-alt" /></mdb-btn>
+				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState4" :active="active4"><mdb-icon size="2x" icon="quote-right" /></mdb-btn>
+				<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;width:20%;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState5" :active="active5"><mdb-icon size="2x" icon="microphone" /></mdb-btn>
 			</mdb-btn-group>
 		</mdb-navbar>
   </div>
@@ -91,11 +91,11 @@ export default {
 	computed : {
         getFont() {//Accounts for different screen sizes.
         if (screen.width>=1000) {
-          return "1vw";
+          return "2.5vw";
         } else if (screen.width>=700) {
-          return ".5vw";
+          return "2.5vw";
         } else {
-          return ".3vw";
+			return "1.3vw";
           }
         },
 	},
@@ -113,7 +113,17 @@ export default {
 		display: inline-block;
     }
 	#rounded {
-		display: inline-block;
+	}
+	@media (max-width: 400px){
+    .mdb-btn-group {
+		width: auto !important;
+		display:none !important;
+	}
+    .mdb-btn {
+		width: auto !important;
+		display:none !important;
+		visibility: hidden;
+		}
 	}
 
     

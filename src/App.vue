@@ -2,7 +2,7 @@
   <div id="app">
     <TopNav msg="Time" style="z-index:99"/>
       <TileContainer :cards="cards" :currentList="currentActive"/>
-      <div style="width:100vw;height:20vh;"></div>
+      <div :style="'width:100vw;height:'+getMargin"></div>
     <BottomNav @updateList="updateList"/>
   </div>
 </template>
@@ -62,6 +62,17 @@ export default {
     updateList(list) {
           this.currentActive = list;
         }
+  },
+  computed : {
+      getMargin() {
+        if (screen.width>=1000) {//Accounts for different screen sizes.
+          return "15vw";
+        } else if (screen.width>=700) {
+          return "50vw";
+        } else {
+          return "30vw";
+        }
+      }
   }
 }
 
