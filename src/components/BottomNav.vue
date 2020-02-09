@@ -2,11 +2,11 @@
   <div id="bottomNav" class=" position-fixed"  d-flex>
         <mdb-navbar color="sunny-morning-gradient" class="d-flex justify-content-around" >
 			<mdb-col>
-			<mdb-btn color="unique"  :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState1" :active="active1">Articles</mdb-btn>
-			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState2" :active="active2">Photos</mdb-btn>
-			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState3" :active="active3">Events</mdb-btn>
-			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState4" :active="active4">Quotes</mdb-btn>
-			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState5" :active="active5">Announcements</mdb-btn>
+			<mdb-btn color="unique"  :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState1" :active="active1">Articles</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState2" :active="active2">Photos</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState3" :active="active3">Events</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState4" :active="active4">Quotes</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState5" :active="active5">Announcements</mdb-btn>
 			</mdb-col>
 		</mdb-navbar>
   </div>

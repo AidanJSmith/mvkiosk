@@ -10,7 +10,6 @@
     <PhotoTile class="grid-item animated fadeInDown" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
     <ArticleTile class="grid-item animated fadeInDown" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
      <QuoteTile class="grid-item animated fadeInDown" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
-         
 
   </masonry>
     </div>
