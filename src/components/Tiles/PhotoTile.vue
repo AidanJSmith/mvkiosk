@@ -15,7 +15,7 @@ export default {
       caption : String,
     },
     computed : {
-      getFont() {
+      getFont() {//Accounts for different screen sizes.
         if (screen.width>=1000) {
           return "4vw"
         } else if (screen.width>=700) {
@@ -24,7 +24,7 @@ export default {
           return "4vw"
         }
       },
-     getBigFont() {
+     getBigFont() {//Accounts for different screen sizes.
           console.log(screen.width)
         if (screen.width>=1000) {
           return "3vw"

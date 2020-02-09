@@ -1,12 +1,14 @@
 <template>
-  <div id="bottomNav" class=" position-fixed" fill d-flex>
-        <mdb-navbar color="sunny-morning-gradient" class="d-flex justify-content-around" fill style="font-size:1.5vw;">
-			<mdb-btn color="unique"  style="font-size:1.5vw;font-family:Lucida Sans Unicode" class="rounded" @click.native="toggleActiveState1" :active="active1">Articles</mdb-btn>
-			<mdb-btn color="unique" style="font-size:1.5vw;font-family:Lucida Sans Unicode" class="rounded" @click.native="toggleActiveState2" :active="active2">Photos</mdb-btn>
-			<mdb-btn color="unique" style="font-size:1.5vw;font-family:Lucida Sans Unicode" class="rounded" @click.native="toggleActiveState3" :active="active3">Events</mdb-btn>
-			<mdb-btn color="unique" style="font-size:1.5vw;font-family:Lucida Sans Unicode" class="rounded" @click.native="toggleActiveState4" :active="active4">Quotes</mdb-btn>
-			<mdb-btn color="unique" style="font-size:1.5vw;font-family:Lucida Sans Unicode" class="rounded" @click.native="toggleActiveState5" :active="active5">Announcements</mdb-btn>
-        </mdb-navbar>
+  <div id="bottomNav" class=" position-fixed"  d-flex>
+        <mdb-navbar color="sunny-morning-gradient" class="d-flex justify-content-around" >
+			<mdb-col>
+			<mdb-btn color="unique"  :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState1" :active="active1">Articles</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState2" :active="active2">Photos</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState3" :active="active3">Events</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState4" :active="active4">Quotes</mdb-btn>
+			<mdb-btn color="unique" :style="'font-family:Lucida Sans Unicode;font-size:'+getFont" class="rounded" @click.native="toggleActiveState5" :active="active5">Announcements</mdb-btn>
+			</mdb-col>
+		</mdb-navbar>
   </div>
 </template>
 
@@ -19,7 +21,7 @@ export default {
 	data() {
             return {
 				currentActive :[],
-                active1: true,
+                active1: false,
                 active2: false,
 				active3: false,
 				active4: false,
@@ -28,6 +30,7 @@ export default {
 		},
 		methods: {
 			updateList() {
+				//See how many buttons are pressed.
 				this.currentActive=[];
 				if(this.active1) {
 					this.currentActive.push("1");
@@ -48,6 +51,7 @@ export default {
 					this.currentActive=["1","2","3","4","5"];
 				}
 			},
+			//If a button is pressed, flip its active state.
             toggleActiveState1() {
 				this.active1 =!this.active1;
             },
@@ -65,23 +69,35 @@ export default {
             },
 		},
 		watch : {
+			//Whenever any of the buttons change, modify the list of current active states. This is taken by the vuex router and used to filter the current cards shown.
 			active1 : function() {
-				this.updateList()
+				this.updateList();
 			},
 			active2 : function() {
-				this.updateList()
+				this.updateList();
 			},
 			active3 : function() {
-				this.updateList()
+				this.updateList();
 			},
 			active4 : function() {
-				this.updateList()
+				this.updateList();
 			},
 			active5 : function() {
-				this.updateList()
+				this.updateList();
 			},
 
-		}
+		},
+	computed : {
+        getFont() {//Accounts for different screen sizes.
+        if (screen.width>=1000) {
+          return "2vw";
+        } else if (screen.width>=700) {
+          return "1.5vw";
+        } else {
+          return "1vw";
+          }
+        },
+	}
 }
 </script>
 

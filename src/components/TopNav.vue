@@ -39,7 +39,7 @@ export default {
         .then(data => {
           this.temp=Math.round(data["main"]["temp"]*1.8 - 459.67,2) + "°F"
         })
-        .catch(error => console.error(error))
+        .catch(error => console.error(error));
     }
   },
   mounted() {
@@ -47,8 +47,8 @@ export default {
       this.getWeather();
   },
   created () {
-    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 2000)
-    setInterval(() => this.getWeather(), 1000*360)
+    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 2000);
+    setInterval(() => this.getWeather(), 1000*360);
   }, 
   computed : {
     getDate() {

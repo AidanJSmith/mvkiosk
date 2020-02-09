@@ -1,13 +1,23 @@
 <template>
+    <div id="wrapper">
   <masonry
   :cols="{default: 3, 1000: 3, 700: 2, 400: 1}"
   :gutter="{default: '20px', 700: '10px'}"
+  id="wrapper"
+  :style="'transform: translate(0px,'+getTranslateY+')'"
   >
+     <EventTile class="grid-item" v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
     <PhotoTile class="grid-item" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
     <ArticleTile class="grid-item" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
      <QuoteTile class="grid-item" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
      <EventTile class="grid-item" v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
+    <PhotoTile class="grid-item" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
+    <ArticleTile class="grid-item" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
+     <QuoteTile class="grid-item" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
+     
+
   </masonry>
+    </div>
 </template>
 
 <script>
@@ -60,23 +70,20 @@ export default {
                 }
             }
         }
+    },
+    computed : {
+        getTranslateY() {
+            console.log(screen.width);
+            return "15vh";
+        }            
     }
 }
 </script>
 
 <style scoped>
-#start {
-    background-color: rgb(255, 219, 164);
-    width:100vw;
-    margin-top: 10vh;
-    margin-left:5vw;
-    align-self:center;
-    align-content: center;
-    justify-content: center;
-}
+
 #wrapper {
     background-color: rgb(255, 219, 164);
-    width:100vw;
     overflow: hidden;
     align-self:center;
     justify-content: center;

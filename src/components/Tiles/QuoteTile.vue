@@ -14,22 +14,22 @@ export default {
       author : String,
     },
     computed : {
-      getFont() {
+      getFont() {//Accounts for different screen sizes.
         if (screen.width>=1000) {
-          return "2.25vw"
+          return "2.25vw";
         } else if (screen.width>=700) {
-          return "2vw"
+          return "2vw";
         } else {
-          return "2.5vw"
+          return "2.5vw";
         }
       },
-     getBigFont() {
+     getBigFont() {//Accounts for different screen sizes.
         if (screen.width>=1000) {
-          return "2vw"
+          return "2vw";
         } else if (screen.width>=700) {
-          return "1vw"
+          return "1vw";
         } else {
-          return "3vw"
+          return "3vw";
         }
       }
     }

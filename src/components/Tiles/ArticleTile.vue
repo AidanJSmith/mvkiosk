@@ -20,21 +20,21 @@ export default {
     },
     computed : {
       getFont() {
-        if (screen.width>=1000) {
-          return "2vw"
+        if (screen.width>=1000) {//Accounts for different screen sizes.
+          return "2vw";
         } else if (screen.width>=700) {
-          return "1.5vw"
+          return "1.5vw";
         } else {
-          return "3vw"
+          return "3vw";
         }
       },
      getBigFont() {
-        if (screen.width>=1000) {
-          return "4vw"
+        if (screen.width>=1000) {//Accounts for different screen sizes.
+          return "4vw";
         } else if (screen.width>=700) {
-          return "3.5vw"
+          return "3.5vw";
         } else {
-          return "4vw"
+          return "4vw";
         }
       }
     }
