@@ -1,10 +1,11 @@
 <template>
   <div id="wrapper">
-  <mdb-masonry flexbox  id="start" :numCols="3" :maxHeight="masonsize/24" :style="`height:`+masonsize/6+'vh'"  v-resize-text="{ratio:2,  maxFontSize: '5em', delay: 0}">
-     <mdb-masonry-item :itemStyle="{'width':'24vw'}" v-for="quote in quotes"  :key="quote.quote" ><QuoteTile :author="quote.speaker" :quote="quote.quote"/></mdb-masonry-item>
-     <mdb-masonry-item :itemStyle="{'width':'24vw'}" v-for="event in events"  :key="event.name" ><EventTile :date="event.date" :description="event.name"/></mdb-masonry-item>
-    <mdb-masonry-item :itemStyle="{'width':'24vw'}" v-for="photo in photos"  :key="photo.key" ><PhotoTile  :caption="photo.caption"  :image="photo.imgurl"/></mdb-masonry-item>
-    <mdb-masonry-item :itemStyle="{'width':'24vw'}" v-for="article in articles"  :key="article.name"><ArticleTile :body="article.body" :title="article.name"  :image="article.imgurl"/></mdb-masonry-item>
+  <mdb-masonry flexbox  id="start" :numCols="2" :maxHeight="masonsize/24" :style="`height:`+masonsize+'vh'"  v-resize-text="{ratio:2,  maxFontSize: '5em', delay: 0}">
+        <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="photo in photos"  :key="photo.key" ><PhotoTile  :caption="photo.caption"  :image="photo.imgurl"/></mdb-masonry-item>
+    <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="article in articles"  :key="article.name"><ArticleTile :body="article.body" :title="article.name"  :image="article.imgurl"/></mdb-masonry-item>
+     <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="quote in quotes"  :key="quote.quote" ><QuoteTile :author="quote.speaker" :quote="quote.quote"/></mdb-masonry-item>
+     <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="event in events"  :key="event.name" ><EventTile :date="event.date" :description="event.name"/></mdb-masonry-item>
+
     </mdb-masonry>
   </div>
 </template>
@@ -64,7 +65,7 @@ export default {
 <style scoped>
 #start {
     background-color: rgb(255, 219, 164);
-    width:90vw;
+    width:100vw;
     margin-top: 10vh;
     margin-left:5vw;
     align-self:center;
