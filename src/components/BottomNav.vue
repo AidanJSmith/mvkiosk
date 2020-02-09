@@ -50,6 +50,7 @@ export default {
 				if (!this.currentActive.length) {
 					this.currentActive=["1","2","3","4","5"];
 				}
+				this.$emit("updateList", this.currentActive);
 			},
 			//If a button is pressed, flip its active state.
             toggleActiveState1() {
@@ -97,6 +98,9 @@ export default {
           return ".3vw";
           }
         },
+	},
+	mounted() {
+		this.updateList();
 	}
 }
 </script>

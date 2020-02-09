@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <TopNav msg="Time" style="z-index:99"/>
-      <TileContainer :cards="cards"/>
+      <TileContainer :cards="cards" :currentList="currentActive"/>
 
-    <BottomNav/>
+    <BottomNav @updateList="updateList"/>
   </div>
 </template>
 
@@ -17,12 +17,15 @@ Main: Tiles
 Types of Tiles:
 Video, Photo, Event, Quote, Announcement, Article (eventually)
 
+Get the server running for calendar scraping... maybe sooner?
+Get oracle scraper up and running.
 
 */
 import TopNav from './components/TopNav.vue'
 import BottomNav from './components/BottomNav.vue'
 import TileContainer from './components/TileContainer.vue'
 import Firebase from "firebase/app";
+
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -52,8 +55,14 @@ export default {
   data() {
         return {
             cards : [],
+            currentActive : [],
         }
-    }
+    },
+  methods : {
+    updateList(list) {
+          this.currentActive = list;
+        }
+  }
 }
 
 

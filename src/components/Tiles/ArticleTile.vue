@@ -1,6 +1,6 @@
 <template>
   <mdb-card color="amber darken-1" class="align-contents-center" style="" v-resize-text="{ratio:2,  maxFontSize: '2vw', delay: 0}">
-        <mdb-view alt="hoverable" class="zoom overlay">
+        <mdb-view alt="hoverable clickable" class="zoom overlay">
           <mdb-card-image :src="image" class="img-fluid" alt="Card image cap" ></mdb-card-image>
           <mdb-mask flex-center overlay="orange-strong" :style="'font-size:' + getBigFont" :text="title"/>
         </mdb-view>

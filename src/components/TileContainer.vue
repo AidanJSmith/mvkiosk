@@ -6,15 +6,11 @@
   id="wrapper"
   :style="'transform: translate(0px,'+getTranslateY+')'"
   >
-     <EventTile class="grid-item" v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
-    <PhotoTile class="grid-item" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
-    <ArticleTile class="grid-item" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
-     <QuoteTile class="grid-item" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
-     <EventTile class="grid-item" v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
-    <PhotoTile class="grid-item" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
-    <ArticleTile class="grid-item" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
-     <QuoteTile class="grid-item" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
-     
+     <EventTile class="grid-item animated fadeInDown"  v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
+    <PhotoTile class="grid-item animated fadeInDown" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
+    <ArticleTile class="grid-item animated fadeInDown" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
+     <QuoteTile class="grid-item animated fadeInDown" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
+         
 
   </masonry>
     </div>
@@ -36,6 +32,7 @@ export default {
     },
     props : {
         cards : Array,
+        currentList : Array,
     },
     data() {
         return {
@@ -53,22 +50,10 @@ export default {
         },
     watch : {
         cards: function() {
-            this.masonsize=this.cards.length*50;
-            for (let i=0;i<this.cards.length;i++) {
-                console.log(this.cards[i].type)
-                if (this.cards[i].type=="article") {
-                    this.articles.push(this.cards[i]);
-                }
-                if (this.cards[i].type=="photo") {
-                    this.photos.push(this.cards[i]);
-                }
-                if (this.cards[i].type=="event") {
-                    this.events.push(this.cards[i]);
-                }
-                if (this.cards[i].type=="quote") {
-                    this.quotes.push(this.cards[i]);
-                }
-            }
+            this.modCards();
+        },
+        currentList : function() {
+            this.modCards();
         }
     },
     computed : {
@@ -83,6 +68,38 @@ export default {
                 return "5vh";
             }
         }            
+    },
+    methods : {
+        modCards() {
+            this.articles=[];
+            this.events=[];
+            this.photos=[];
+            this.quotes=[];
+            this.masonsize=this.cards.length*50;
+            for (let i=0;i<this.cards.length;i++) {
+
+                if (this.cards[i].type=="article"&&this.numInArray("1")) {
+                    this.articles.push(this.cards[i]);
+                }
+                if (this.cards[i].type=="photo"&&this.numInArray("2")) {
+                    this.photos.push(this.cards[i]);
+                }
+                if (this.cards[i].type=="event"&&this.numInArray("3")) {
+                    this.events.push(this.cards[i]);
+                }
+                if (this.cards[i].type=="quote"&&this.numInArray("4")) {
+                    this.quotes.push(this.cards[i]);
+                }
+            }
+        },
+        numInArray(num) {
+            for (let i=0;i<this.currentList.length;i++) {
+                if (this.currentList[i]==num) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
 </script>
