@@ -29,9 +29,9 @@ export default {
         if (screen.width>=1000) {
           return "3vw"
         } else if (screen.width>=700) {
-          return "2.5vw"
+          return "3vw"
         } else {
-          return "2vw"
+          return "4vw"
         }
       }
     }

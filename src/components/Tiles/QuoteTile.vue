@@ -20,7 +20,7 @@ export default {
         } else if (screen.width>=700) {
           return "2vw"
         } else {
-          return "1.5vw"
+          return "2.5vw"
         }
       },
      getBigFont() {
@@ -29,7 +29,7 @@ export default {
         } else if (screen.width>=700) {
           return "1vw"
         } else {
-          return "1vw"
+          return "3vw"
         }
       }
     }

@@ -5,7 +5,7 @@
           <mdb-mask flex-center overlay="orange-strong" :style="'font-size:' + getBigFont" :text="title"/>
         </mdb-view>
         <mdb-card-body>
-          <mdb-card-text :style="'font-size' +getFont" class="white-text">{{body}}</mdb-card-text>
+          <mdb-card-text :style="'font-size:' +getFont" class="white-text">{{body}}</mdb-card-text>
         </mdb-card-body>
   </mdb-card>
 </template>
@@ -21,11 +21,11 @@ export default {
     computed : {
       getFont() {
         if (screen.width>=1000) {
-          return "4vw"
-        } else if (screen.width>=700) {
-          return "3vw"
-        } else {
           return "2vw"
+        } else if (screen.width>=700) {
+          return "1.5vw"
+        } else {
+          return "3vw"
         }
       },
      getBigFont() {
@@ -34,7 +34,7 @@ export default {
         } else if (screen.width>=700) {
           return "3.5vw"
         } else {
-          return "2vw"
+          return "4vw"
         }
       }
     }
