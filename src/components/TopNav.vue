@@ -4,7 +4,7 @@
   <mdb-navbar color="sunny-morning-gradient" style="position:fixed;right:0;left:0;" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}" class="">
     <mdb-navbar-nav nav fill class="d-flex">
         <mdb-col style="text-align:left">
-             <mdb-row class="" v-resize-text="{ratio:2,  maxFontSize: '10em', delay: 0}">
+             <mdb-row class="" :style="'font-size:'+getFont">
               {{time}} | {{getDate}}   | Code by Aidan Smith
              </mdb-row>
              <mdb-row>
@@ -12,7 +12,7 @@
              </mdb-row>
         </mdb-col>
        </mdb-navbar-nav>
-     <mdb-navbar-nav nav right class="d-flex">
+      <mdb-navbar-nav nav right class="d-flex">
         <mdb-icon icon="map" size="2x" />
      </mdb-navbar-nav>
   </mdb-navbar>
@@ -53,7 +53,18 @@ export default {
   computed : {
     getDate() {
       return new Date().toISOString().split('.')[0].split('T')[0];
-    }
+    },
+    getFont() {//Accounts for different screen sizes.
+      if (screen.width>=1000) {
+        return "1.25vw";
+      } else if (screen.width>=500) {
+        return "5vw";
+      } else if (screen.width>=300) {
+        return "3vw";
+      } else {
+        return "2vw";
+      }
+    },
   }
 }
 </script>

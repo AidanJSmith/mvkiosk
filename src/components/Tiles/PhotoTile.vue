@@ -25,7 +25,6 @@ export default {
         }
       },
      getBigFont() {//Accounts for different screen sizes.
-          console.log(screen.width)
         if (screen.width>=1000) {
           return "3vw"
         } else if (screen.width>=700) {

@@ -90,11 +90,11 @@ export default {
 	computed : {
         getFont() {//Accounts for different screen sizes.
         if (screen.width>=1000) {
-          return "2vw";
-        } else if (screen.width>=700) {
-          return "1.5vw";
-        } else {
           return "1vw";
+        } else if (screen.width>=700) {
+          return ".5vw";
+        } else {
+          return ".3vw";
           }
         },
 	}

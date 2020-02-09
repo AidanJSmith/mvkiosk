@@ -73,8 +73,15 @@ export default {
     },
     computed : {
         getTranslateY() {
-            console.log(screen.width);
-            return "15vh";
+            if (screen.width>1000) {
+                return "15vh";
+            } else if(screen.width>=700) {
+                return "12vh";
+            } else if(screen.width>=400) {
+                return "10vh";
+            } else {
+                return "5vh";
+            }
         }            
     }
 }
