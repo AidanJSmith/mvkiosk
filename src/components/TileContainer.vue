@@ -1,13 +1,13 @@
 <template>
-  <div id="wrapper">
-  <mdb-masonry flexbox  id="start" :numCols="2" :maxHeight="masonsize/24" :style="`height:`+masonsize+'vh'"  v-resize-text="{ratio:2,  maxFontSize: '5em', delay: 0}">
-        <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="photo in photos"  :key="photo.key" ><PhotoTile  :caption="photo.caption"  :image="photo.imgurl"/></mdb-masonry-item>
-    <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="article in articles"  :key="article.name"><ArticleTile :body="article.body" :title="article.name"  :image="article.imgurl"/></mdb-masonry-item>
-     <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="quote in quotes"  :key="quote.quote" ><QuoteTile :author="quote.speaker" :quote="quote.quote"/></mdb-masonry-item>
-     <mdb-masonry-item :itemStyle="{'width':'48vw'}" v-for="event in events"  :key="event.name" ><EventTile :date="event.date" :description="event.name"/></mdb-masonry-item>
-
-    </mdb-masonry>
-  </div>
+  <masonry
+  :cols="{default: 3, 1000: 3, 700: 2, 400: 1}"
+  :gutter="{default: '20px', 700: '10px'}"
+  >
+    <PhotoTile class="grid-item" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
+    <ArticleTile class="grid-item" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
+     <QuoteTile class="grid-item" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
+     <EventTile class="grid-item" v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
+  </masonry>
 </template>
 
 <script>
@@ -15,6 +15,7 @@ import ArticleTile from './Tiles/ArticleTile'
 import PhotoTile from './Tiles/PhotoTile'
 import EventTile from './Tiles/EventTile'
 import QuoteTile from './Tiles/QuoteTile'
+
 export default {
     name : "TileContainer",
     components : {
@@ -38,6 +39,7 @@ export default {
     mounted() {
         this.masonsize=this.cards.length*50;
         console.log(this.masonsize);
+
         },
     watch : {
         cards: function() {
@@ -79,17 +81,9 @@ export default {
     align-self:center;
     justify-content: center;
 }
-
-
-  .masonry-with-flex div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    color: white;
-    margin: 0.5rem;
-    font-weight: 900;
-    font-size: 2rem;
-  }
+.grid-item {
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
 
 </style>

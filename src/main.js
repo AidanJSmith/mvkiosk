@@ -8,7 +8,9 @@ import { rtdbPlugin  } from 'vuefire'
 // Add the Firebase services that you want to use
 import "firebase/auth";
 import "firebase/database";
+import VueMasonry from 'vue-masonry-css'
 
+Vue.use(VueMasonry);
 
 for (const component in mdbvue) {
   Vue.component(component, mdbvue[component])
