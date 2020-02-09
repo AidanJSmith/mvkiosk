@@ -3,15 +3,15 @@
   <masonry
   :cols="{default: 3, 1000: 3, 700: 2, 400: 1}"
   :gutter="{default: '20px', 700: '10px'}"
+  stamp=".stamp"
   id="wrapper"
-  :style="'transform: translate(0px,'+getTranslateY+')'"
+  :style="'transform: translate(0px,'+getTranslateY+');'"
   >
      <EventTile class="grid-item animated fadeInDown"  v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
     <PhotoTile class="grid-item animated fadeInDown" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
     <ArticleTile class="grid-item animated fadeInDown" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
      <QuoteTile class="grid-item animated fadeInDown" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
-
-  </masonry>
+    </masonry>
     </div>
 </template>
 
@@ -45,14 +45,15 @@ export default {
     mounted() {
         this.masonsize=this.cards.length*50;
         console.log(this.masonsize);
-
-        },
+        this.matchHeight()
+    },
     watch : {
         cards: function() {
             this.modCards();
         },
         currentList : function() {
             this.modCards();
+            this.matchHeight();
         }
     },
     computed : {
@@ -107,7 +108,6 @@ export default {
 
 #wrapper {
     background-color: rgb(255, 219, 164);
-    overflow: hidden;
     align-self:center;
     justify-content: center;
 }

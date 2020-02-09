@@ -2,7 +2,7 @@
   <div id="app">
     <TopNav msg="Time" style="z-index:99"/>
       <TileContainer :cards="cards" :currentList="currentActive"/>
-
+      <div style="width:100vw;height:20vh;"></div>
     <BottomNav @updateList="updateList"/>
   </div>
 </template>
