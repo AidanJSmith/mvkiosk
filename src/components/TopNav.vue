@@ -1,7 +1,7 @@
 
 
 <template>
-  <mdb-navbar color="sunny-morning-gradient" style="position:fixed;right:0;left:0;" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}" class="">
+  <mdb-navbar color="amber darken-1" style="position:fixed;right:0;left:0;" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}" class="">
     <mdb-navbar-nav nav fill class="d-flex">
         <mdb-col style="text-align:left">
              <mdb-row class="" :style="'font-size:'+getFont">

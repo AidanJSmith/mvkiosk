@@ -70,7 +70,7 @@ export default {
             } else if(screen.width>=700) {
                 return "14vh";
             } else if(screen.width>=500) {
-                return "13vh";
+                return "10vh";
             } else if (screen.width>=350) {
                 return "10.5vh";
             } else {

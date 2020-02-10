@@ -67,11 +67,15 @@ export default {
   computed : {
       getMargin() {
         if (screen.width>=1000) {//Accounts for different screen sizes.
-          return "15vw";
-        } else if (screen.width>=700) {
-          return "50vw";
-        } else {
+          return "20vw";
+        } else if (screen.width>=800) {
           return "30vw";
+        } else  if (screen.width>=450) {
+            return "50vw";
+          } else  if (screen.width>=430) {
+            return "42vw";
+          }{
+          return "60vw";
         }
       }
   }
