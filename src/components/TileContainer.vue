@@ -21,32 +21,7 @@ import PhotoTile from './Tiles/PhotoTile'
 import EventTile from './Tiles/EventTile'
 import QuoteTile from './Tiles/QuoteTile'
 
-function shuffle(elems) {
- 
-    let allElems = (function(){
-	var ret = [], l = elems.length;
-	while (l--) { ret[ret.length] = elems[l]; }
-	return ret;
-    })();
- 
-    var shuffled = (function(){
-        var l = allElems.length, ret = [];
-        while (l--) {
-            var random = Math.floor(Math.random() * allElems.length),
-                randEl = allElems[random].cloneNode(true);
-            allElems.splice(random, 1);
-            ret[ret.length] = randEl;
-        }
-        return ret; 
-    })(), l = elems.length;
- 
-    while (l--) {
-        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
-        elems[l].parentNode.removeChild(elems[l]);
-    }
- 
-}
- 
+
  
 // Usage:
 
@@ -87,7 +62,6 @@ export default {
     },
     computed : {
         getTranslateY() {
-            shuffle( document.getElementsByClassName('grid-item') );
             if (screen.width>1000) {
                 if (screen.height>800) {
                     return "17vh"

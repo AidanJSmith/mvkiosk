@@ -52,7 +52,7 @@ export default {
   }, 
   computed : {
     getDate() {
-      return new Date().toISOString().split('.')[0].split('T')[0];
+      return new Date().toString().slice(0,11);
     },
     getFont() {//Accounts for different screen sizes.
       if (screen.width>=1000) {

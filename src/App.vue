@@ -19,6 +19,7 @@ Video, Photo, Event, Quote, Announcement, Article (eventually)
 
 Get the server running for calendar scraping... maybe sooner?
 Get oracle scraper up and running.
+Fix dates in calendar
 
 */
 import TopNav from './components/TopNav.vue'
