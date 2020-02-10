@@ -21,6 +21,35 @@ import PhotoTile from './Tiles/PhotoTile'
 import EventTile from './Tiles/EventTile'
 import QuoteTile from './Tiles/QuoteTile'
 
+function shuffle(elems) {
+ 
+    let allElems = (function(){
+	var ret = [], l = elems.length;
+	while (l--) { ret[ret.length] = elems[l]; }
+	return ret;
+    })();
+ 
+    var shuffled = (function(){
+        var l = allElems.length, ret = [];
+        while (l--) {
+            var random = Math.floor(Math.random() * allElems.length),
+                randEl = allElems[random].cloneNode(true);
+            allElems.splice(random, 1);
+            ret[ret.length] = randEl;
+        }
+        return ret; 
+    })(), l = elems.length;
+ 
+    while (l--) {
+        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
+        elems[l].parentNode.removeChild(elems[l]);
+    }
+ 
+}
+ 
+ 
+// Usage:
+
 export default {
     name : "TileContainer",
     components : {
@@ -45,7 +74,7 @@ export default {
     mounted() {
         this.masonsize=this.cards.length*50;
         console.log(this.masonsize);
-        this.matchHeight()
+        
     },
     watch : {
         cards: function() {
@@ -53,11 +82,12 @@ export default {
         },
         currentList : function() {
             this.modCards();
-            this.matchHeight();
+            
         }
     },
     computed : {
         getTranslateY() {
+            shuffle( document.getElementsByClassName('grid-item') );
             if (screen.width>1000) {
                 if (screen.height>800) {
                     return "17vh"
@@ -95,7 +125,9 @@ export default {
                 if (this.cards[i].type=="quote"&&this.numInArray("4")) {
                     this.quotes.push(this.cards[i]);
                 }
+                
             }
+            
         },
         numInArray(num) {
             for (let i=0;i<this.currentList.length;i++) {
