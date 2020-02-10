@@ -1,8 +1,21 @@
 <template>
   <div id="app">
     <TopNav msg="Time" style="z-index:99"/>
-      <TileContainer :cards="cards" :currentList="currentActive"/>
-      <div :style="'width:100vw;height:'+getMargin"></div>
+    <div v-if="modal">
+        <div v-if="modalProps.type='photo'">
+          <mdb-modal :show="modal" size="fluid" @close="modal = false">
+            <mdb-modal-body>
+              <img :src="modalProps.image" style="width:40vw">
+              <p color="grey" style="font-size:3.5vw;"><i color="light-grey">{{modalProps.caption}}</i></p>
+            </mdb-modal-body>
+            <mdb-modal-footer>
+              <mdb-btn color="amber" @click.native="modal = false">Close</mdb-btn>
+            </mdb-modal-footer>
+          </mdb-modal>
+        </div>
+    </div>
+    <TileContainer :cards="cards" @modalRequired="drawModal" :currentList="currentActive"/>
+    <div :style="'width:100vw;height:'+getMargin"></div>
     <BottomNav @updateList="updateList"/>
   </div>
 </template>
@@ -57,12 +70,21 @@ export default {
         return {
             cards : [],
             currentActive : [],
+            modal:false,
+            modalProps:{},
         }
     },
   methods : {
     updateList(list) {
           this.currentActive = list;
-        }
+    },
+    drawModal(props) {
+      if (props.type=="photo") {
+                this.modal=true;
+                this.modalProps["image"]=props.image;
+                this.modalProps["caption"]=props.caption;
+      }
+    }
   },
   computed : {
       getMargin() {

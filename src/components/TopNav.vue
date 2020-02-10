@@ -1,7 +1,7 @@
 
 
 <template>
-  <mdb-navbar color="amber darken-1" style="position:fixed;right:0;left:0;" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}" class="">
+  <mdb-navbar color="amber darken-3" style="position:fixed;right:0;left:0;" v-resize-text="{ratio:2,  maxFontSize: '40em', delay: 0}" class="">
     <mdb-navbar-nav nav fill class="d-flex">
         <mdb-col style="text-align:left">
              <mdb-row class="" :style="'font-size:'+getFont">
@@ -13,7 +13,18 @@
         </mdb-col>
        </mdb-navbar-nav>
       <mdb-navbar-nav nav right class="d-flex">
-        <mdb-icon icon="map" size="2x" />
+        <mdb-icon @click.native="modal = true" icon="map" style="cursor:pointer" size="2x" />
+        <mdb-modal :show="modal" size="lg" @close="modal = false">
+          <mdb-modal-header>
+            <mdb-modal-title>School Map</mdb-modal-title>
+          </mdb-modal-header>
+          <mdb-modal-body>
+            <img src="../assets/map.png">
+          </mdb-modal-body>
+          <mdb-modal-footer>
+            <mdb-btn color="amber" @click.native="modal = false">Close</mdb-btn>
+          </mdb-modal-footer>
+        </mdb-modal>
      </mdb-navbar-nav>
   </mdb-navbar>
 </template>
@@ -28,6 +39,7 @@ export default {
     return {
       time : "123",
       temp : "0F",
+      modal : false,
     }
   },
   methods : {

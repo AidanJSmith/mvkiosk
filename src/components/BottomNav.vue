@@ -1,6 +1,6 @@
 <template>
   <div id="bottomNav" class=" position-fixed"  d-flex>
-        <mdb-navbar color="sunny-morning-gradient" class="d-flex justify-content-center	" >
+        <mdb-navbar color="amber darken-3" class="d-flex justify-content-center	" >
 			<mdb-btn-group class="btn-group" v-if="true" style="width:100%;text-align:center">
 				<mdb-btn color="amber"  :style="'font-family:Lucida Sans Unicode;width:25%;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState1" :active="active1"><mdb-icon size="2x" icon="newspaper" /></mdb-btn>
 				<mdb-btn color="amber" :style="'font-family:Lucida Sans Unicode;width:25%;font-size:'+getFont" class="rounded" @click.native.prevent="toggleActiveState2" :active="active2"><mdb-icon size="2x" icon="camera" /></mdb-btn>

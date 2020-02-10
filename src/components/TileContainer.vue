@@ -7,10 +7,10 @@
   id="wrapper"
   :style="'transform: translate(0px,'+getTranslateY+');'"
   >
-     <EventTile class="grid-item animated fadeInDown"  v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
-    <PhotoTile class="grid-item animated fadeInDown" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
-    <ArticleTile class="grid-item animated fadeInDown" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
-     <QuoteTile class="grid-item animated fadeInDown" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
+     <EventTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
+    <PhotoTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
+    <ArticleTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
+     <QuoteTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
     </masonry>
     </div>
 </template>
@@ -110,6 +110,9 @@ export default {
                 }
             }
             return false;
+        },
+        drawModal(props) {
+            this.$emit("modalRequired", props); //do an emit function that tells the card container that we need to draw a modal.
         }
     }
 }
