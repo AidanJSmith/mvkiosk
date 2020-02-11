@@ -14,12 +14,12 @@
        </mdb-navbar-nav>
       <mdb-navbar-nav nav right class="d-flex">
         <mdb-icon @click.native="modal = true" icon="map" style="cursor:pointer" size="2x" />
-        <mdb-modal :show="modal" size="lg" @close="modal = false">
+        <mdb-modal :show="modal" class="p-0"  size="fluid" @close="modal = false">
           <mdb-modal-header>
             <mdb-modal-title>School Map</mdb-modal-title>
           </mdb-modal-header>
           <mdb-modal-body>
-            <img src="../assets/map.png">
+            <img style="width:40vw" src="../assets/map.png">
           </mdb-modal-body>
           <mdb-modal-footer>
             <mdb-btn color="amber" @click.native="modal = false">Close</mdb-btn>

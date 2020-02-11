@@ -3,8 +3,7 @@
     <TopNav msg="Time" style="z-index:99"/>
     <div v-if="modal">
         <div v-if="modalProps.type='photo'">
-          <mdb-modal :show="modal" size="fluid" @close="modal = false">
-            <mdb-modal-body>
+            <mdb-modal side position="right" fullHeight direction="right"  :show="modal" @close="modal = false">            <mdb-modal-body>
               <img :src="modalProps.image" style="width:40vw">
               <p color="grey" style="font-size:3.5vw;"><i color="light-grey">{{modalProps.caption}}</i></p>
             </mdb-modal-body>
@@ -33,6 +32,7 @@ Video, Photo, Event, Quote, Announcement, Article (eventually)
 Get the server running for calendar scraping... maybe sooner?
 Get oracle scraper up and running.
 Fix dates in calendar
+FIGURE OUT MODALS!
 
 */
 import TopNav from './components/TopNav.vue'
