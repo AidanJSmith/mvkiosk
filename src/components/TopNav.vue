@@ -19,7 +19,9 @@
             <mdb-modal-title>School Map</mdb-modal-title>
           </mdb-modal-header>
           <mdb-modal-body>
-            <img style="width:40vw" src="../assets/map.png">
+              <mdb-row class="align-items-center justify-content-center">
+                <img class="align-self-center" style="fill" src="../assets/map.png">
+              </mdb-row>
           </mdb-modal-body>
           <mdb-modal-footer>
             <mdb-btn color="amber" @click.native="modal = false">Close</mdb-btn>
