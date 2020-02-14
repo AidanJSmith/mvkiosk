@@ -2,7 +2,7 @@
   <div id="app">
     <TopNav msg="Time" style="z-index:99"/>
 
-    <TileContainer :cards="cards" @modalRequired="drawModal" :currentList="currentActive"/>
+    <TileContainer :cards="cards"  :currentList="currentActive"/>
     <div :style="'width:100vw;height:'+getMargin"></div>
     <BottomNav @updateList="updateList"/>
   </div>
@@ -61,17 +61,21 @@ export default {
             currentActive : [],
             modal:false,
             modalProps:{},
+            firstTime:true,
         }
     },
   methods : {
     updateList(list) {
           this.currentActive = list;
+          this.cards=this.cards.sort( () => Math.random() - 0.5);
+
     },
-    drawModal(props) {
-      if (props.type=="photo") {
-                this.modal=true;
-                this.modalProps["image"]=props.image;
-                this.modalProps["caption"]=props.caption;
+  },
+  watch : {
+    cards : function() {
+      if (this.firstTime) {
+          this.cards=this.cards.sort( () => Math.random() - 0.5);
+          this.firstTime=false;
       }
     }
   },

@@ -7,20 +7,15 @@
   id="wrapper"
   :style="'transform: translate(0px,'+getTranslateY+');'"
   >
-     <EventTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="event in events"  :key="event.name"  :date="event.date" :description="event.name"/>
-    <PhotoTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="photo in photos"  :key="photo.key" :caption="photo.caption"  :image="photo.imgurl"/>
-    <ArticleTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="article in articles"  :key="article.name" :body="article.body" :title="article.name"  :image="article.imgurl"/>
-     <QuoteTile class="grid-item animated fadeInDown" @modalRequired="drawModal" v-for="quote in quotes"  :key="quote.quote" :author="quote.speaker" :quote="quote.quote"/>
+    <SorterTile class="grid-item " :restricts="currentList" v-for="type in cards" :key="cards.indexOf(type)" :card="type"/>
+    
     </masonry>
     </div>
 </template>
 
 <script>
-import ArticleTile from './Tiles/ArticleTile'
-import PhotoTile from './Tiles/PhotoTile'
-import EventTile from './Tiles/EventTile'
-import QuoteTile from './Tiles/QuoteTile'
 
+import SorterTile from './Tiles/SorterTile'
 
  
 // Usage:
@@ -28,10 +23,7 @@ import QuoteTile from './Tiles/QuoteTile'
 export default {
     name : "TileContainer",
     components : {
-        ArticleTile,
-        PhotoTile,
-        EventTile,
-        QuoteTile,
+        SorterTile,
     },
     props : {
         cards : Array,
@@ -44,6 +36,7 @@ export default {
             photos:[],
             events:[],
             quotes:[],
+            mounted:false,
         }
     },
     mounted() {
@@ -52,11 +45,11 @@ export default {
         
     },
     watch : {
-        cards: function() {
-            this.modCards();
+        cards : function() {
+            if (!this.mounted);
+            this.mounted=true;
         },
-        currentList : function() {
-            this.modCards();
+        mounted : function() {
             
         }
     },
@@ -79,41 +72,6 @@ export default {
         }            
     },
     methods : {
-        modCards() {
-            this.articles=[];
-            this.events=[];
-            this.photos=[];
-            this.quotes=[];
-            this.masonsize=this.cards.length*50;
-            for (let i=0;i<this.cards.length;i++) {
-
-                if (this.cards[i].type=="article"&&this.numInArray("1")) {
-                    this.articles.push(this.cards[i]);
-                }
-                if (this.cards[i].type=="photo"&&this.numInArray("2")) {
-                    this.photos.push(this.cards[i]);
-                }
-                if (this.cards[i].type=="event"&&this.numInArray("3")) {
-                    this.events.push(this.cards[i]);
-                }
-                if (this.cards[i].type=="quote"&&this.numInArray("4")) {
-                    this.quotes.push(this.cards[i]);
-                }
-                
-            }
-            
-        },
-        numInArray(num) {
-            for (let i=0;i<this.currentList.length;i++) {
-                if (this.currentList[i]==num) {
-                    return true;
-                }
-            }
-            return false;
-        },
-        drawModal(props) {
-            this.$emit("modalRequired", props); //do an emit function that tells the card container that we need to draw a modal.
-        }
     }
 }
 </script>
