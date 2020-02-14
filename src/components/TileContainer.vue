@@ -7,7 +7,7 @@
   id="wrapper"
   :style="'transform: translate(0px,'+getTranslateY+');'"
   >
-    <SorterTile class="grid-item " :restricts="currentList" v-for="type in cards" :key="cards.indexOf(type)" :card="type"/>
+    <SorterTile class="grid-item " :restricts="currentList" v-for="type in compcards" :key="compcards.indexOf(type)" :card="type"/>
     
     </masonry>
     </div>
@@ -45,9 +45,11 @@ export default {
         
     },
     watch : {
-        cards : function() {
-            if (!this.mounted);
-            this.mounted=true;
+        currentList : function() {
+            for(let i=0;i<this.cards.length;i++) {
+                this.i+=1;
+            }
+            
         },
         mounted : function() {
             
@@ -69,6 +71,12 @@ export default {
             } else {
                 return "3.9vh";
             }
+        },
+        compcards() {
+            if (this.currentList.length==1) {
+                return this.cards.slice().sort();
+            }
+            return this.cards;
         }            
     },
     methods : {
