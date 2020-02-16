@@ -1,8 +1,8 @@
 <template>
 <div>
-     <EventTile class="grid-item animated fadeInDown"  v-if="card.type=='event'&&numInArray('1')"  :date="card.date" :description="card.name"/>
+     <EventTile class="grid-item animated fadeInDown"  v-if="card.type=='event'&&numInArray('3')"  :date="card.date" :description="card.name"/>
     <PhotoTile class="grid-item animated fadeInDown" v-if="card.type=='photo'&&numInArray('2')"  :caption="card.caption"  :image="card.imgurl"/>
-    <ArticleTile class="grid-item animated fadeInDown"  v-if="card.type=='article'&&numInArray('3')" :body="card.body" :title="card.name"  :image="card.imgurl"/>
+    <ArticleTile class="grid-item animated fadeInDown"  v-if="card.type=='article'&&numInArray('1')" :body="card.body" :title="card.name"  :image="card.imgurl"/>
      <QuoteTile class="grid-item animated fadeInDown"  v-if="card.type=='quote'&&numInArray('4')"   :author="card.speaker" :quote="card.quote"/>
   </div>
 </template>

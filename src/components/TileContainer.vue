@@ -8,7 +8,7 @@
   :style="'transform: translate(0px,'+getTranslateY+');'"
   >
     <SorterTile class="grid-item " :restricts="currentList" v-for="type in compcards" :key="compcards.indexOf(type)" :card="type"/>
-    
+   
     </masonry>
     </div>
 </template>
@@ -74,12 +74,25 @@ export default {
         },
         compcards() {
             if (this.currentList.length==1) {
-                return this.cards.slice().sort();
-            }
+                return this.cards.slice().sort().filter(this.cardFilter);
+                }
             return this.cards;
         }            
     },
     methods : {
+         cardFilter : function(card) {
+                    switch (this.currentList[0]) {
+                        case "1":
+                            return card.type=="article" ? true : false;
+                        case "2":
+                            return card.type=="photo" ? true : false;
+                        case "3":
+                            return card.type=="event" ? true : false;
+                        case "4":
+                            return  card.type=="quote" ? true : false;
+                        default:
+                            return false;
+                    }}
     }
 }
 </script>
