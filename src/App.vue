@@ -13,7 +13,6 @@
 To-Do:
 TopNav: Fonts
 BottomNav: Real Items.
-Main: Tiles
 
 Types of Tiles:
 Video, Photo, Event, Quote, Announcement, Article (eventually)
