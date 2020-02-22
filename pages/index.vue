@@ -11,22 +11,15 @@
 <script>
 /*
 To-Do:
-TopNav: Fonts
-BottomNav: Real Items.
-Main: Tiles
-
-Types of Tiles:
-Video, Photo, Event, Quote, Announcement, Article (eventually)
-
-Get the server running for calendar scraping... maybe sooner?
-Get oracle scraper up and running.
-Fix dates in calendar
-FIGURE OUT MODALS!
+Article Popouts with VueX Router
+Admin Backpanel
+Server that actively updates with oracle articles + Gcalendar events + Maintains Database
+Database Permissions
 
 */
-import TopNav from './components/TopNav.vue'
-import BottomNav from './components/BottomNav.vue'
-import TileContainer from './components/TileContainer.vue'
+import TopNav from '../src/components/TopNav'
+import BottomNav from '../src/components/BottomNav.vue'
+import TileContainer from '../src/components/TileContainer.vue'
 import Firebase from "firebase/app";
 
 
@@ -41,12 +34,11 @@ const firebaseConfig = {
   appId: "1:738629164734:web:79378ad5b74e343ea808ef",
   measurementId: "G-1QC7ZVETN5"
 };
-
-let app = Firebase.initializeApp(firebaseConfig)
-let db = app.database()
+!Firebase.apps.length ? Firebase.initializeApp(firebaseConfig) : ''
+let db = Firebase.database()
 
 export default {
-  name: 'app',
+  name: 'index',
   components: {
     TopNav,
     BottomNav,
