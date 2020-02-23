@@ -1,11 +1,12 @@
 <template>
-  <mdb-card color="amber darken-1" class="" >
+    <div fill>  
+      <mdb-card color="amber darken-1" class="" >
         <mdb-view alt="hoverable" class="zoom overlay">
-          <mdb-card-image :src="image" class="img-fluid" alt="Card image cap"></mdb-card-image>
-          <mdb-mask flex-center overlay="orange-strong" :style="'font-size:'+getBigFont" :text="caption"/>
-        </mdb-view>
-        
-  </mdb-card>
+           <img :src="image" class=" cover" alt=""/>
+           <mdb-mask flex-center overlay="orange-strong" :style="'font-size:'+getBigFont" :text="caption"/>
+        </mdb-view> 
+      </mdb-card>
+    </div>   
 </template>
 <script>
 
@@ -35,7 +36,14 @@ export default {
         } else {
           return "4vw"
         }
+      },
+      bodyMath() {
+      if (this.caption.length<50) {
+        return this.caption;
+      } else {
+        return this.caption.substring(0,47)+"...";
       }
+    }
     },
     data() {
       return {
@@ -45,5 +53,10 @@ export default {
 </script>
 
 <style scoped>
+
+.cover {
+  object-fit: cover !important;
+  width: 100%  !important;
+}
 
 </style>

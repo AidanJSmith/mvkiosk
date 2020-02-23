@@ -17,12 +17,12 @@ export default {
     computed : {
         convertDay() {
             let tu= (new Date(this.date));
-            tu=tu.toISOString().split('.')[0].split('T')[0] //Takes an ISO string ,such as the one passed in the date object, and converts it into a standard m/d/y format.
+            tu=tu.toLocaleDateString(); //Takes an ISO string ,such as the one passed in the date object, and converts it into a standard m/d/y format.
             return tu;
         },
         convertHour() {
             let tu= (new Date(this.date))
-            tu=tu.toISOString().split('.')[0].split('T')[1].slice(0,5) //Takes the first 5 digits of the specific time at which the event occurs... i.e 10:30.
+            tu=tu.toLocaleTimeString().split(":")[0]+":"+tu.toLocaleTimeString().split(":")[1]+" "+ tu.toLocaleTimeString().slice(-2); //Takes the first 5 digits of the specific time at which the event occurs... i.e 10:30.
             return tu;
         },
         getFont() { //Accounts for different screen sizes.

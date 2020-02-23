@@ -1,11 +1,11 @@
 <template>
   <mdb-card color="amber darken-1" class="align-contents-center" style="" v-resize-text="{ratio:2,  maxFontSize: '2vw', delay: 0}">
         <mdb-view alt="hoverable clickable" class="zoom overlay">
-          <mdb-card-image :src="image" class="img-fluid" alt="Card image cap" ></mdb-card-image>
+          <img :src="image" class="cover" alt="Card image cap"/>
           <mdb-mask flex-center overlay="orange-strong" :style="'font-size:' + getBigFont" :text="title"/>
         </mdb-view>
         <mdb-card-body>
-          <mdb-card-text :style="'font-size:' +getFont" class="white-text">{{body}}</mdb-card-text>
+          <mdb-card-text :style="'font-size:' +getFont" class="white-text">{{bodyMath}}</mdb-card-text>
         </mdb-card-body>
   </mdb-card>
 </template>
@@ -36,11 +36,21 @@ export default {
         } else {
           return "4vw";
         }
+      },
+    bodyMath() {
+      if (this.body.length<150) {
+        return this.body;
+      } else {
+        return this.body.substring(0,147)+"...";
       }
+    }
     }
 }
 </script>
 
 <style scoped>
-
+.cover {
+  object-fit: cover !important;
+  width: 100%  !important;
+}
 </style>
