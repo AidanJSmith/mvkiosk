@@ -2,7 +2,7 @@
   <div id="app">
     <TopNav msg="Time" style="z-index:99"/>
 
-    <TileContainer :cards="cards"  :currentList="currentActive"/>
+    <TileContainer :cards="finalList"  :currentList="currentActive"/>
     <div :style="'width:100vw;height:'+getMargin"></div>
     <BottomNav @updateList="updateList"/>
   </div>
@@ -52,30 +52,35 @@ export default {
     TileContainer
   },
   firebase: {
-    cards: db.ref("Cards")
+    cards: db.ref("Cards"),
+    oracalendar : db.ref("Oracalendar")
   },
   data() {
         return {
             cards : [],
+            oracalendar : [],
             currentActive : [],
             modal:false,
             modalProps:{},
             firstTime:true,
+            finalList :[]
         }
     },
   methods : {
     updateList(list) {
           this.currentActive = list;
-          this.cards=this.cards.sort( () => Math.random() - 0.5);
+          this.finalList=this.finalList.sort( () => Math.random() - 0.5);
 
     },
   },
   watch : {
     cards : function() {
-      if (this.firstTime) {
-          this.cards=this.cards.sort( () => Math.random() - 0.5);
-          this.firstTime=false;
-      }
+      this.finalList=this.cards.concat(this.oracalendar);
+      this.finalList=this.finalList.sort( () => Math.random() - 0.5);
+    },
+    oracalendar : function() {
+      this.finalList=this.cards.concat(this.oracalendar);
+      this.finalList=this.finalList.sort( () => Math.random() - 0.5);
     }
   },
   computed : {

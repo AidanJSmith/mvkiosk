@@ -2,7 +2,7 @@
   <mdb-card color="amber darken-1" class="align-contents-center" style="" v-resize-text="{ratio:2,  maxFontSize: '2vw', delay: 0}">
         <mdb-view alt="hoverable clickable" class="zoom overlay">
           <img :src="image" class="cover" alt="Card image cap"/>
-          <mdb-mask flex-center overlay="orange-strong" :style="'font-size:' + getBigFont" :text="title"/>
+          <mdb-mask flex-center overlay="orange-strong" :style="'font-size:' + getBigFont" :text="titleMath"/>
         </mdb-view>
         <mdb-card-body>
           <mdb-card-text :style="'font-size:' +getFont" class="white-text">{{bodyMath}}</mdb-card-text>
@@ -42,6 +42,13 @@ export default {
         return this.body;
       } else {
         return this.body.substring(0,147)+"...";
+      }
+    },
+    titleMath() {
+      if (this.title.length<40) {
+        return this.title;
+      } else {
+        return this.title.substring(0,37)+"...";
       }
     }
     }
