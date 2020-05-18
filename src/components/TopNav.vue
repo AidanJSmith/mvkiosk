@@ -32,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'TopNav',
   props: {
@@ -61,7 +62,7 @@ export default {
       this.getWeather();
   },
   created () {
-    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 2000);
+    setInterval(() => this.time =  new Date().toLocaleTimeString().slice(0,-6), 1000);
     setInterval(() => this.getWeather(), 1000*360);
   }, 
   computed : {
