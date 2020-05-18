@@ -27,7 +27,7 @@ import TopNav from './components/TopNav.vue'
 import BottomNav from './components/BottomNav.vue'
 import TileContainer from './components/TileContainer.vue'
 import Firebase from "firebase/app";
-
+const {remote} = require("electron")
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -43,6 +43,7 @@ const firebaseConfig = {
 
 let app = Firebase.initializeApp(firebaseConfig)
 let db = app.database()
+
 
 export default {
   name: 'app',
@@ -65,12 +66,23 @@ export default {
             firstTime:true,
             finalList :[]
         }
+    }, mounted () {
+      remote.getCurrentWindow().setFullScreen(true);
+      setInterval(()=> {
+        var {PythonShell} = require('python-shell');
+        var myPythonScriptPath = require('electron').remote.app.getAppPath()+`\\..\\src\\Maintenance\\maintenance.py`;
+        PythonShell.run( myPythonScriptPath, null, function  (err, results)  {
+          if  (err)  throw err;
+          console.log('hello.py finished.');
+          console.log('results', results);
+          console.log("Python loaded.");
+          });
+      },14400000);
     },
   methods : {
     updateList(list) {
           this.currentActive = list;
           this.finalList=this.finalList.sort( () => Math.random() - 0.5);
-
     },
   },
   watch : {
@@ -111,6 +123,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow-x:hidden;
 }
 .app {
   background-color:rgb(255, 219, 164);

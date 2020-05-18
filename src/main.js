@@ -12,6 +12,7 @@ import VueMasonry from 'vue-masonry-css'
 
 Vue.use(VueMasonry);
 
+
 for (const component in mdbvue) {
   Vue.component(component, mdbvue[component])
 }

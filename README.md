@@ -4,7 +4,8 @@
 ```
 npm install
 ```
-
+Additionally:
+Get the python dependancies bs4,requests, and firebase_admin
 ### Compiles and hot-reloads for development
 ```
 npm run serve
