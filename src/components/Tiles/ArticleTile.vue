@@ -1,0 +1,63 @@
+<template>
+  <mdb-card color="amber darken-1" class="align-contents-center" style="" v-resize-text="{ratio:2,  maxFontSize: '2vw', delay: 0}">
+        <mdb-view alt="hoverable clickable" class="zoom overlay">
+          <img :src="image" class="cover" alt="Card image cap"/>
+          <mdb-mask flex-center overlay="orange-strong" :style="'font-size:' + getBigFont" :text="titleMath"/>
+        </mdb-view>
+        <mdb-card-body>
+          <mdb-card-text :style="'font-size:' +getFont" class="white-text">{{bodyMath}}</mdb-card-text>
+        </mdb-card-body>
+  </mdb-card>
+</template>
+<script>
+
+export default {
+    name : "ArticleTile",
+    props : {
+      image : String,
+      title : String,
+      body : String,
+    },
+    computed : {
+      getFont() {
+        if (screen.width>=1000) {//Accounts for different screen sizes.
+          return "2vw";
+        } else if (screen.width>=700) {
+          return "1.5vw";
+        } else {
+          return "3vw";
+        }
+      },
+     getBigFont() {
+        if (screen.width>=1000) {//Accounts for different screen sizes.
+          return "4vw";
+        } else if (screen.width>=700) {
+          return "3.5vw";
+        } else {
+          return "4vw";
+        }
+      },
+    bodyMath() {
+      if (this.body.length<150) {
+        return this.body;
+      } else {
+        return this.body.substring(0,147)+"...";
+      }
+    },
+    titleMath() {
+      if (this.title.length<40) {
+        return this.title;
+      } else {
+        return this.title.substring(0,37)+"...";
+      }
+    }
+    }
+}
+</script>
+
+<style scoped>
+.cover {
+  object-fit: cover !important;
+  width: 100%  !important;
+}
+</style>
