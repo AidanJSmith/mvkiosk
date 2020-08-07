@@ -63,10 +63,10 @@ export default {
   flex-direction: column;
 }
 .header {
+  text-align: center;
   position: relative;
-  font-size: 3em;
+  font-size: 2.5em;
   align-self: center;
-
   font-weight: 600;
 }
 .main {
@@ -81,7 +81,7 @@ export default {
 }
 .card_info {
   display: grid;
-  grid-template-rows: 90% 10%;
+  grid-template-rows: 85% 15%;
   grid-template-columns: 100%;
   grid-area: "header" "controls";
   z-index: 1;
@@ -112,8 +112,8 @@ export default {
 .card {
   position: relative;
   background: $primary_color;
-  width: 90%;
+  width: 100%;
   border-radius: 19px;
-  height: 90%;
+  height: 100%;
 }
 </style>
