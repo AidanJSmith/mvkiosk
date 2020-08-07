@@ -83,14 +83,13 @@ export default {
 }
 
 .title {
-  background-color: $primary_color;
   margin: 0;
   grid-column: 1 / span 3;
 }
 .slideshow {
-  background: $secondary_color;
   grid-column: 1 / span 3;
   grid-row: 2 / span 3;
+  
 }
 .apps {
   background: $tertiary_color;
