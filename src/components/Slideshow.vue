@@ -64,7 +64,7 @@ export default {
 }
 .header {
   position: relative;
-  font-size: 5em;
+  font-size: 3em;
   align-self: center;
 
   font-weight: 600;
