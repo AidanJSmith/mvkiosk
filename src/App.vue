@@ -75,7 +75,10 @@ $grid-gap: 130px;
   grid-template-columns: repeat(3, $card-size);
   row-gap: $grid-gap;
   column-gap: $grid-gap;
-  margin-right: $grid-gap;
+   &:not(:last-of-type) {
+    margin-right: $grid-gap;
+   }
+  
 }
 .card {
   background-color: #888;
@@ -98,8 +101,8 @@ $grid-gap: 130px;
 }
 
 
-@media only screen and (max-width: 1250px) {
-  /* tablets+: */
+@media only screen and (max-width: 1360px) {
+  /* tablets+ */
   .grid {
     margin-right:0;
     margin-top:10%;

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card">
       <section class="card_info">
-        <div class="header">{{ images[index].header }}</div>
+        <div class="header"></div>
         <div class="knobs">
           <span
             v-for="tag in images.length"
@@ -65,7 +65,7 @@ export default {
 .header {
   text-align: center;
   position: relative;
-  font-size: 2.5em;
+  font-size: 4em;
   align-self: center;
   font-weight: 600;
 }
@@ -77,7 +77,6 @@ export default {
   height: 100%;
   border-radius: 19px;
   object-fit: cover;
-  filter: blur(2px);
 }
 .card_info {
   display: grid;
