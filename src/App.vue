@@ -48,6 +48,9 @@ export default {
 <style lang="scss">
 @import "./scss/_variables.scss";
 
+$card-size: 60px;
+$grid-gap: 80px;
+
 :root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -60,7 +63,6 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 200px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -69,17 +71,17 @@ export default {
 
 .grid {
   display: grid;
-  grid-template-rows: repeat(4, 60px);
-  grid-template-columns: repeat(3, 60px);
-  row-gap: 60px;
-  column-gap: 60px;
-  margin-right: 60px;
+  grid-template-rows: repeat(4, $card-size);
+  grid-template-columns: repeat(3, $card-size);
+  row-gap: $grid-gap;
+  column-gap: $grid-gap;
+  margin-right: $grid-gap;
 }
 .card {
   background-color: #888;
   border-radius: 3px;
-  min-width: 60px;
-  min-height: 60px;
+  min-width: $card-size;
+  min-height: $card-size;
 }
 
 .title {
