@@ -93,6 +93,8 @@ export default {
   flex-direction: row;
   justify-content: center;
   justify-items: center;
+  align-self: flex-end;
+  margin-bottom: 4%;
 }
 .knob {
   display: inline-block;

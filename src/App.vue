@@ -48,8 +48,8 @@ export default {
 <style lang="scss">
 @import "./scss/_variables.scss";
 
-$card-size: 60px;
-$grid-gap: 80px;
+$card-size: 110px;
+$grid-gap: 130px;
 
 :root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -79,7 +79,7 @@ $grid-gap: 80px;
 }
 .card {
   background-color: #888;
-  border-radius: 3px;
+  border-radius: 10px;
   min-width: $card-size;
   min-height: $card-size;
 }
@@ -95,5 +95,48 @@ $grid-gap: 80px;
 }
 .apps {
   background: $tertiary_color;
+}
+
+
+@media only screen and (max-width: 1250px) {
+  /* tablets+: */
+  .grid {
+    margin-right:0;
+    margin-top:10%;
+  }
+  #app {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* phones: */
+  $card-size: 50px;
+  $grid-gap: 10px;
+
+  .grid {
+    row-gap: $grid-gap;
+    column-gap: $grid-gap;
+    margin-right:0;
+    margin-top:10%;
+  }
+  .card {
+    background-color: #888;
+    border-radius: 10px;
+    min-width: $card-size;
+    min-height: $card-size;
+  }
+  #app {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+  }
 }
 </style>
