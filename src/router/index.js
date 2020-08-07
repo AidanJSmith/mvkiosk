@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
+// Handle this when we want to do actual UI switching
 const routes = [
   {
     path: "/",
