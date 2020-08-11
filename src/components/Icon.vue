@@ -41,9 +41,7 @@ export default {
   text-align: center;
   margin-top:10px;
 }
-img {
-  object-fit: cover;
-}
+
 slot {
   width: 100%;
   height: 100%;

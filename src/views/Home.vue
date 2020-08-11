@@ -1,18 +1,174 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app">
+    <div class="grid">
+      <Title class="title"></Title>
+      <Slideshow class="slideshow" :images="slideshowObject"></Slideshow>
+    </div>
+    <div class="grid">
+      <Icon name="This is an app with a long name">
+        <img class="main" :src="require(`@/assets/img/surf-avatar-01.png`)"
+      /></Icon>
+      <Icon class="x2x2">
+        <img class="main" :src="require(`@/assets/img/surf-avatar-04.png`)"
+      /></Icon>
+      <Icon>
+        <div
+          style="display:grid;grid-template-rows:1fr 4fr 1fr;grid-template-columns:100%;width:100%;"
+        >
+          <div style="background-color:Aquamarine">
+            Header
+          </div>
+          <div
+            style="display:flex;justify-content:center;align-items:center;background-color:DarkSeaGreen"
+          >
+            Body
+          </div>
+          <div style="background-color:ForestGreen">
+            Footer
+          </div>
+        </div>
+      </Icon>
+      <div class="card x1"></div>
+      <Icon name="uwu" class="x1x2">
+        <img class="main" style="object-fit:cover;" :src="require(`@/assets/img/surf-avatar-02.png`)"
+      /></Icon>
+      <Icon name="owu" class="x1x2">
+        <img class="main" style="object-fit:cover;" :src="require(`@/assets/img/surf-avatar-05.png`)"
+      /></Icon>
+      <div class="card x1"></div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Title from "@/components/Title";
+import Slideshow from "@/components/Slideshow";
+import Icon from "@/components/Icon";
+
+const slideShowData = [
+  { image: "surf-avatar-01.png", header: "Dolphins are cool" },
+  { image: "surf-avatar-02.png", header: "I do love dolphins" },
+  { image: "surf-avatar-03.png", header: "Whoah, a walrus" },
+];
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
-  }
+    Title,
+    Slideshow,
+    Icon,
+  },
+  data() {
+    return {
+      slideshowObject: slideShowData,
+    };
+  },
 };
 </script>
+
+<style lang="scss">
+@import "../scss/_variables.scss";
+
+$card-size: 110px;
+$grid-gap: 130px;
+
+:root {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(4, $card-size);
+  grid-template-columns: repeat(3, $card-size);
+  row-gap: $grid-gap;
+  column-gap: $grid-gap;
+  &:not(:last-of-type) {
+    margin-right: $grid-gap;
+  }
+}
+.card {
+  background-color: #888;
+  border-radius: 10px;
+  min-width: $card-size;
+  min-height: $card-size;
+}
+.x2x2 {
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+}
+.x2x1 {
+  grid-column-end: span 1;
+  grid-row-end: span 2;
+}
+.x1x2 {
+  grid-column-end: span 2;
+  grid-row-end: span 1;
+}
+.title {
+  margin: 0;
+  grid-column: 1 / span 3;
+}
+.slideshow {
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 3;
+}
+.apps {
+  background: $tertiary_color;
+}
+
+@media only screen and (max-width: 1360px) {
+  /* tablets+ */
+  .grid {
+    margin-right: 0;
+    margin-top: 10%;
+  }
+  #app {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* phones: */
+  $card-size: 50px;
+  $grid-gap: 10px;
+
+  .grid {
+    row-gap: $grid-gap;
+    column-gap: $grid-gap;
+    margin-right: 0;
+    margin-top: 10%;
+  }
+  .card {
+    background-color: #888;
+    border-radius: 10px;
+    min-width: $card-size;
+    min-height: $card-size;
+  }
+  #app {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+  }
+}
+</style>

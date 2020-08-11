@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Oracle from "../views/Oracle.vue";
+import Weather from "../views/Weather.vue";
 
 Vue.use(VueRouter);
 
@@ -12,7 +14,17 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
+    path: "/oracle/:articleID",
+    name: "Oracle",
+    component: Oracle
+  },
+  {
+    path: "/Weather",
+    name: "Weather",
+    component: Weather
+  },
+  {
+    path: "/About",
     name: "About",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
