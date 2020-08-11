@@ -5,14 +5,32 @@
       <Slideshow class="slideshow" :images="slideshowObject"></Slideshow>
     </div>
     <div class="grid">
-      <div class="card x1"></div>
-      <div class="card x1"></div>
-      <div class="card x1"></div>
-      <div class="card x1"></div>
-      <div class="card x1"></div>
-      <div class="card x1"></div>
-      <div class="card x1"></div>
-      <div class="card x1"></div>
+      <Icon name="This is an app">
+        <img class="main" :src="require(`@/assets/img/surf-avatar-01.png`)"
+      /></Icon>
+      <Icon class="x2">
+        <img class="main" :src="require(`@/assets/img/surf-avatar-04.png`)"
+      /></Icon>
+      <Icon name="uwu">
+        <img class="main" :src="require(`@/assets/img/surf-avatar-02.png`)"
+      /></Icon>
+      <Icon>
+        <div
+          style="display:grid;grid-template-rows:1fr 4fr 1fr;grid-template-columns:100%;width:100%;"
+        >
+          <div style="background-color:Aquamarine">
+            text1
+          </div>
+          <div
+            style="display:flex;justify-content:center;align-items:center;background-color:DarkSeaGreen"
+          >
+            middle
+          </div>
+          <div style="background-color:ForestGreen">
+            Footer text
+          </div>
+        </div>
+      </Icon>
       <div class="card x1"></div>
       <div class="card x1"></div>
       <div class="card x1"></div>
@@ -24,24 +42,26 @@
 <script>
 import Title from "@/components/Title";
 import Slideshow from "@/components/Slideshow";
+import Icon from "@/components/Icon";
 
 const slideShowData = [
   { image: "surf-avatar-01.png", header: "Dolphins are cool" },
   { image: "surf-avatar-02.png", header: "I do love dolphins" },
-  { image: "surf-avatar-03.png", header: "Whoah, a walrus" }
+  { image: "surf-avatar-03.png", header: "Whoah, a walrus" },
 ];
 
 export default {
   name: "App",
   components: {
     Title,
-    Slideshow
+    Slideshow,
+    Icon,
   },
   data() {
     return {
-      slideshowObject: slideShowData
+      slideshowObject: slideShowData,
     };
-  }
+  },
 };
 </script>
 
@@ -75,10 +95,9 @@ $grid-gap: 130px;
   grid-template-columns: repeat(3, $card-size);
   row-gap: $grid-gap;
   column-gap: $grid-gap;
-   &:not(:last-of-type) {
+  &:not(:last-of-type) {
     margin-right: $grid-gap;
-   }
-  
+  }
 }
 .card {
   background-color: #888;
@@ -86,7 +105,10 @@ $grid-gap: 130px;
   min-width: $card-size;
   min-height: $card-size;
 }
-
+.x2 {
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+}
 .title {
   margin: 0;
   grid-column: 1 / span 3;
@@ -94,18 +116,16 @@ $grid-gap: 130px;
 .slideshow {
   grid-column: 1 / span 3;
   grid-row: 2 / span 3;
-  
 }
 .apps {
   background: $tertiary_color;
 }
 
-
 @media only screen and (max-width: 1360px) {
   /* tablets+ */
   .grid {
-    margin-right:0;
-    margin-top:10%;
+    margin-right: 0;
+    margin-top: 10%;
   }
   #app {
     position: relative;
@@ -124,8 +144,8 @@ $grid-gap: 130px;
   .grid {
     row-gap: $grid-gap;
     column-gap: $grid-gap;
-    margin-right:0;
-    margin-top:10%;
+    margin-right: 0;
+    margin-top: 10%;
   }
   .card {
     background-color: #888;
