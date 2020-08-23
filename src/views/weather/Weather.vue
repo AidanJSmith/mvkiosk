@@ -22,16 +22,16 @@
    }
 }
 .container {
+   background-color: #fff;
    position: fixed;
    width:100vw;
    height: 100vh;
    top:0;
    left:0;
-   background-color: rgb(32, 32, 32);
 }
 .content {
-   color:white;
+   color:#555;
    font-size:10em;
-   animation: animateIn .1s linear forwards;
+   animation: animateIn .3s linear forwards;
 }
 </style>

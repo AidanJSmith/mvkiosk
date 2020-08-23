@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Oracle from "../views/Oracle.vue";
-import Weather from "../views/Weather.vue";
+import Weather from "../views/weather/Weather.vue";
 
 Vue.use(VueRouter);
 

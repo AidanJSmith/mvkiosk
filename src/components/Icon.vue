@@ -50,15 +50,17 @@ export default {
   methods: {
     // Expands the animation
     route: function () {
-      this.undoRoute=!this.undoRoute;
-      if (this.Name=="Kiosk") {
+      this.undoRoute = !this.undoRoute;
+      if (this.Name == "Kiosk") {
         return;
       }
+      const thisRect = this.$el.getBoundingClientRect();
+      console.log(thisRect);
       this.$refs.animation.classList.toggle("expanded");
-      this.moveRoute=setTimeout((()=>{ 
+      this.moveRoute = setTimeout((() => { 
         if (this.undoRoute)
-        this.$router.push({ path: this.Name });
-      }).bind(),410);
+          this.$router.push({ path: this.Name });
+      }).bind(), 800);
     }
   }
 };
@@ -98,22 +100,25 @@ export default {
 }
 
 .launchAnimation {
-  background-color: #0003;
-  border-radius: 100%;
+  background-color: #eee;
+  box-shadow: #0002 5px 5px 80px;
+  border-radius: 200%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
   width: 0;
   height: 0;
-  transition-duration: 0.4s;
+  transition-duration: 0s;
 
   &.expanded {
-    background-color: rgb(32, 32, 32);
+    background-color: #fff;
     border-radius: 0;
     width: 100vmax;
     height: 100vmax;
     transform: none !important;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
   }
 }
 

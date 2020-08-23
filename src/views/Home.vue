@@ -41,20 +41,7 @@
         </div>
       </Icon>
       <div class="card x1" />
-      <Icon
-        name="Weather"
-        class="x1x2"
-      >
-        <div style="display:flex;width:100%;height:100%;align-items:center;justify-content:space-between;background-color:lightblue;">
-          <div style="margin-left:2rem;background-color:lightyellow;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;" />
-          <div>
-            Sunny.
-          </div>
-          <div style="margin-right:2rem;font-size:2em;font-weight:bold;margin-left:auto;">
-            102°
-          </div>
-        </div>
-      </Icon>
+      <WeatherIcon></WeatherIcon>
       <Icon
         name="owu"
         class="x1x2"
@@ -74,6 +61,7 @@
 import Title from "@/components/Title";
 import Slideshow from "@/components/Slideshow";
 import Icon from "@/components/Icon";
+import WeatherIcon from '@/views/weather/Weather.icon'
 
 const slideShowData = [
   { image: "surf-avatar-01.png", header: "Dolphins are cool" },
@@ -87,6 +75,7 @@ export default {
     Title,
     Slideshow,
     Icon,
+    WeatherIcon
   },
   data() {
     return {
