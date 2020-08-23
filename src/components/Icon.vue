@@ -36,7 +36,8 @@ export default {
   },
   data: function() {
     return {
-      translate: ""
+      translate: "",
+      undoRoute:false,
     }
   },
   mounted: function() {
@@ -49,12 +50,15 @@ export default {
   methods: {
     // Expands the animation
     route: function () {
-      clearTimeout();
+      this.undoRoute=!this.undoRoute;
       if (this.Name=="Kiosk") {
         return;
       }
       this.$refs.animation.classList.toggle("expanded");
-      setTimeout((()=>{this.$router.push({ path: this.Name })}).bind(),410);
+      this.moveRoute=setTimeout((()=>{ 
+        if (this.undoRoute)
+        this.$router.push({ path: this.Name });
+      }).bind(),410);
     }
   }
 };
