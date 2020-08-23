@@ -1,16 +1,28 @@
 <template>
   <div id="app">
     <div class="grid">
-      <Title class="title"></Title>
-      <Slideshow class="slideshow" :images="slideshowObject"></Slideshow>
+      <Title class="title" />
+      <Slideshow
+        class="slideshow"
+        :images="slideshowObject"
+      />
     </div>
     <div class="grid">
-      <Icon name="This is an app with a long name">
-        <img class="main" :src="require(`@/assets/img/surf-avatar-01.png`)"
-      /></Icon>
+      <Icon
+        name="Oracle"
+        action="Oracle"
+      >
+        <img
+          class="main"
+          :src="require(`@/assets/img/surf-avatar-01.png`)"
+        >
+      </Icon>
       <Icon class="x2x2">
-        <img class="main" :src="require(`@/assets/img/surf-avatar-04.png`)"
-      /></Icon>
+        <img
+          class="main"
+          :src="require(`@/assets/img/surf-avatar-04.png`)"
+        >
+      </Icon>
       <Icon>
         <div
           style="display:grid;grid-template-rows:1fr 4fr 1fr;grid-template-columns:100%;width:100%;"
@@ -28,14 +40,28 @@
           </div>
         </div>
       </Icon>
-      <div class="card x1"></div>
-      <Icon name="uwu" class="x1x2">
-        <img class="main" style="object-fit:cover;" :src="require(`@/assets/img/surf-avatar-02.png`)"
-      /></Icon>
-      <Icon name="owu" class="x1x2">
-        <img class="main" style="object-fit:cover;" :src="require(`@/assets/img/surf-avatar-05.png`)"
-      /></Icon>
-      <div class="card x1"></div>
+      <div class="card x1" />
+      <Icon
+        name="Weather"
+        class="x1x2"
+      >
+        <img
+          class="main"
+          style="object-fit:cover;"
+          :src="require(`@/assets/img/surf-avatar-02.png`)"
+        >
+      </Icon>
+      <Icon
+        name="owu"
+        class="x1x2"
+      >
+        <img
+          class="main"
+          style="object-fit:cover;"
+          :src="require(`@/assets/img/surf-avatar-05.png`)"
+        >
+      </Icon>
+      <div class="card x1" />
     </div>
   </div>
 </template>

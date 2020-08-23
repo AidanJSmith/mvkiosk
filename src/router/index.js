@@ -14,6 +14,11 @@ const routes = [
     component: Home
   },
   {
+    path: "/oracle",
+    name: "Oracle",
+    component: Oracle
+  },
+  {
     path: "/oracle/:articleID",
     name: "Oracle",
     component: Oracle

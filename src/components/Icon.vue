@@ -1,25 +1,29 @@
 <template>
   <div>
-    <div class="appContainer" :data-app-name="name" v-on:click="route()">
+    <div
+      class="appContainer"
+      :data-app-name="Name"
+      @click="route()"
+    >
       <div class="appCustomContent">
-        <slot></slot>
+        <slot />
       </div>
     </div>
     <div class="name">
       {{ Name }}
     </div>
-    <div ref="animation" class="launchAnimation" v-bind:style="{ transform: translate }" v-on:click="route()"></div>
+    <div
+      ref="animation"
+      class="launchAnimation"
+      :style="{ transform: translate }"
+      @click="route()"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: "Icon",
-  data: function() {
-    return {
-      translate: ""
-    }
-  },
   props: {
     Name: {
       type: String,
@@ -28,6 +32,11 @@ export default {
     Action: {
       type: String,
       default: "App"
+    }
+  },
+  data: function() {
+    return {
+      translate: ""
     }
   },
   mounted: function() {
@@ -40,7 +49,12 @@ export default {
   methods: {
     // Expands the animation
     route: function () {
+      clearTimeout();
+      if (this.Name=="Kiosk") {
+        return;
+      }
       this.$refs.animation.classList.toggle("expanded");
+      setTimeout((()=>{this.$router.push({ path: this.Name })}).bind(),410);
     }
   }
 };
@@ -50,6 +64,7 @@ export default {
 .appContainer {
   display: flex;
   position: relative;
+  cursor: pointer;
   width: 100%;
   align-items: center;
   height: 100%;
@@ -90,6 +105,7 @@ export default {
   transition-duration: 0.4s;
 
   &.expanded {
+    background-color: rgb(32, 32, 32);
     border-radius: 0;
     width: 100vmax;
     height: 100vmax;
