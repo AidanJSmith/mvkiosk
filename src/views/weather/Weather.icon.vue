@@ -13,7 +13,10 @@
       </div>
     </div>
     <div :class="['screen', 'screen2',before==2 ? 'before' : 'after']">
-      <div style="margin-left:2rem;background-color:lightyellow;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;" />
+      <div 
+        class="smoke" 
+        style="margin-left:2rem;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;"
+      />
       <div>
         Smokey
       </div>
@@ -22,12 +25,12 @@
       </div>
     </div>
     <div :class="['screen', 'screen3',before==3 ? 'before' : 'after']">
-      <div style="margin-left:2rem;background-color:lightyellow;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;" />
+      <div style="margin-left:2rem;background-color:white;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;" />
       <div>
         Cloudy
       </div>
       <div style="margin-right:2rem;font-size:2em;font-weight:bold;margin-left:auto;">
-        {{ 20 }}
+        {{ -50 }}
       </div>
     </div>
   </Icon>
@@ -63,6 +66,11 @@
 
 .x1x2 {
   border-radius: 20px;
+}
+
+.smoke {
+  background: rgb(134,134,134);
+  background: linear-gradient(0deg, rgba(134,134,134,0.5620448863139005) 21%, rgba(249,249,249,0.4500000683867297) 100%);
 }
 
 .screen {
