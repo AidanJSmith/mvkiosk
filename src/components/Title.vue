@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Kiosk 2.0</h1>
+    <h1>Mountain View High School</h1>
+    <h2>Home of the Spartans</h2>
   </div>
 </template>
 
@@ -11,4 +12,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+div {
+  background-color: gold;
+  border-radius: 2px;
+  box-shadow: #aaa 3px 3px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0;
+  padding: 0 30px;
+}
+
+h1, h2 {
+  margin: 0;
+}
 </style>

@@ -72,6 +72,7 @@ export default {
 }
 .main {
   border-radius: 6px;
+  box-shadow: #aaa 3px 3px 10px;
   position: absolute;
   top: 0;
   left: 0;

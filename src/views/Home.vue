@@ -128,6 +128,7 @@ $grid-gap: 90px;
   grid-template-columns: repeat(4, $card-size);
   row-gap: $grid-gap;
   column-gap: $grid-gap;
+
   &:not(:last-of-type) {
     margin-right: $grid-gap;
   }
@@ -138,7 +139,7 @@ $grid-gap: 90px;
 }
 
 .card {
-  background-color: #888;
+  background-image: radial-gradient(#e66465, #9198e5);;
   border-radius: 10px;
   min-width: $card-size;
   min-height: $card-size;
