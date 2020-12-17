@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card">
       <section class="card_info">
-        <div class="header"></div>
+        <div class="header">{{ images[index].header }}</div>
         <div class="knobs">
           <span
             v-for="tag in images.length"
@@ -61,26 +61,26 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 .header {
-  text-align: center;
-  position: relative;
-  font-size: 4em;
-  align-self: center;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 2em;
   font-weight: 600;
 }
 .main {
+  border-radius: 6px;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 6px;
   object-fit: cover;
 }
 .card_info {
   display: grid;
-  grid-template-rows: 85% 15%;
   grid-template-columns: 100%;
   grid-area: "header" "controls";
   z-index: 1;
@@ -89,10 +89,8 @@ export default {
 }
 .knobs {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-items: center;
   align-self: flex-end;
+  justify-content: center;
   margin-bottom: 4%;
 }
 .knob {

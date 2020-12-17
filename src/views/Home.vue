@@ -8,7 +8,13 @@
       <Icon name="Oracle" action="Oracle">
         <img class="main" :src="require(`@/assets/img/surf-avatar-01.png`)" />
       </Icon>
-      <div class="card x1" />
+      <Icon name="pupper" class="x1">
+        <img
+          class="main"
+          style="object-fit: cover"
+          :src="require(`@/assets/img/surf-avatar-10.png`)"
+        />
+      </Icon>
       <Icon class="x2x2">
         <img class="main" :src="require(`@/assets/img/surf-avatar-04.png`)" />
       </Icon>
@@ -35,12 +41,42 @@
           <div style="background-color: ForestGreen">Footer</div>
         </div>
       </Icon>
-      <div class="card x1" />
+      <Icon name="literal seagull" class="x1">
+        <img
+          class="main"
+          style="object-fit: cover"
+          :src="require(`@/assets/img/surf-avatar-09.png`)"
+        />
+      </Icon>
       <WeatherIcon></WeatherIcon>
-      <div class="card x1" />
-      <div class="card x1" />
-      <div class="card x1" />
-      <div class="card x1" />
+      <Icon name="nya" class="x1">
+        <img
+          class="main"
+          style="object-fit: cover"
+          :src="require(`@/assets/img/surf-avatar-08.png`)"
+        />
+      </Icon>
+      <Icon name="uwo" class="x1">
+        <img
+          class="main"
+          style="object-fit: cover"
+          :src="require(`@/assets/img/surf-avatar-03.png`)"
+        />
+      </Icon>
+      <Icon name="uwu" class="x1">
+        <img
+          class="main"
+          style="object-fit: cover"
+          :src="require(`@/assets/img/surf-avatar-06.png`)"
+        />
+      </Icon>
+      <Icon name="owo" class="x1">
+        <img
+          class="main"
+          style="object-fit: cover"
+          :src="require(`@/assets/img/surf-avatar-07.png`)"
+        />
+      </Icon>
       <Icon name="owu" class="x1x2">
         <img
           class="main"
@@ -61,7 +97,7 @@ import WeatherIcon from "@/views/weather/Weather.icon";
 const slideShowData = [
   { image: "surf-avatar-01.png", header: "Dolphins are cool" },
   { image: "surf-avatar-02.png", header: "I do love dolphins" },
-  { image: "surf-avatar-03.png", header: "Whoah, a walrus" },
+  { image: "surf-avatar-03.png", header: "Woah, a walrus" },
 ];
 
 export default {
@@ -83,27 +119,8 @@ export default {
 <style lang="scss">
 @import "../scss/_variables.scss";
 
-$card-size: 120px;
-$grid-gap: 100px;
-
-:root {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#app {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+$card-size: 110px;
+$grid-gap: 90px;
 
 .grid-left, .grid-right {
   display: grid;
