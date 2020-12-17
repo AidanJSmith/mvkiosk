@@ -75,7 +75,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 19px;
+  border-radius: 6px;
   object-fit: cover;
 }
 .card_info {
@@ -99,10 +99,10 @@ export default {
   display: inline-block;
   border-radius: 100%;
   background-color: $secondary_color;
-  height: 2em;
+  height: 1em;
   cursor: pointer;
   transition: all 0.4s;
-  width: 2em;
+  width: 1em;
   &:not(:first-child) {
     margin-left: 0.5em;
   }

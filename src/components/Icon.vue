@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div
-      class="appContainer"
-      :data-app-name="Name"
-      @click="route()"
-    >
+    <div class="appContainer" :data-app-name="Name" @click="route()">
       <div class="appCustomContent">
         <slot />
       </div>
@@ -27,20 +23,20 @@ export default {
   props: {
     Name: {
       type: String,
-      default: "Kiosk"
+      default: "Kiosk",
     },
     Action: {
       type: String,
-      default: "App"
-    }
+      default: "App",
+    },
   },
-  data: function() {
+  data: function () {
     return {
       translate: "",
-      undoRoute:false,
-    }
+      undoRoute: false,
+    };
   },
-  mounted: function() {
+  mounted: function () {
     // Transform the animation to center on the icon
     const thisRect = this.$el.getBoundingClientRect();
     const centerX = Math.floor(thisRect.top + thisRect.height / 2);
@@ -57,26 +53,30 @@ export default {
       const thisRect = this.$el.getBoundingClientRect();
       console.log(thisRect);
       this.$refs.animation.classList.toggle("expanded");
-      this.moveRoute = setTimeout((() => { 
-        if (this.undoRoute)
-          this.$router.push({ path: this.Name });
-      }).bind(), 800);
-    }
-  }
+      this.moveRoute = setTimeout(
+        (() => {
+          if (this.undoRoute) this.$router.push({ path: this.Name });
+        }).bind(),
+        800
+      );
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .appContainer {
-  display: flex;
-  position: relative;
+  border-radius: 6px;
   cursor: pointer;
-  width: 100%;
-  align-items: center;
-  height: 100%;
   text-align: center;
-  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
   justify-content: center;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
 
   .appCustomContent {
     position: absolute;
@@ -96,7 +96,7 @@ export default {
 
 .name {
   text-align: center;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .launchAnimation {
@@ -121,5 +121,4 @@ export default {
     transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
   }
 }
-
 </style>

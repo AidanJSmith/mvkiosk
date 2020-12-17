@@ -1,35 +1,59 @@
 <template>
-  <Icon
-    :name="'Weather'"
-    class="x1x2"
-  >
-    <div :class="['screen', 'screen1',before==1 ? 'before' : 'after']">
-      <div style="margin-left:2rem;background-color:lightyellow;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;" />
-      <div>
-        Sunny
-      </div>
-      <div style="margin-right:2rem;font-size:2em;font-weight:bold;margin-left:auto;">
+  <Icon :name="'Weather'" class="x1x2">
+    <div :class="['screen', 'screen1', before == 1 ? 'before' : 'after']">
+      <div
+        style="
+          margin-left: 2rem;
+          background-color: lightyellow;
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          flex-shrink: 0;
+          margin-right: 1rem;
+        "
+      />
+      <div>Sunny</div>
+      <div
+        style="margin-right: 2rem; font-size: 2em; font-weight: bold; margin-left: auto"
+      >
         {{ weather.weather }}
       </div>
     </div>
-    <div :class="['screen', 'screen2',before==2 ? 'before' : 'after']">
-      <div 
-        class="smoke" 
-        style="margin-left:2rem;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;"
+    <div :class="['screen', 'screen2', before == 2 ? 'before' : 'after']">
+      <div
+        class="smoke"
+        style="
+          margin-left: 2rem;
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          flex-shrink: 0;
+          margin-right: 1rem;
+        "
       />
-      <div>
-        Smokey
-      </div>
-      <div style="margin-right:2rem;font-size:2em;font-weight:bold;margin-left:auto;">
+      <div>Smokey</div>
+      <div
+        style="margin-right: 2rem; font-size: 2em; font-weight: bold; margin-left: auto"
+      >
         {{ 20 }}
       </div>
     </div>
-    <div :class="['screen', 'screen3',before==3 ? 'before' : 'after']">
-      <div style="margin-left:2rem;background-color:white;height:4rem;width:4rem;border-radius:50%;flex-shrink:0;margin-right:1rem;" />
-      <div>
-        Cloudy
-      </div>
-      <div style="margin-right:2rem;font-size:2em;font-weight:bold;margin-left:auto;">
+    <div :class="['screen', 'screen3', before == 3 ? 'before' : 'after']">
+      <div
+        style="
+          margin-left: 2rem;
+          background-color: white;
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          flex-shrink: 0;
+          margin-right: 1rem;
+        "
+      />
+      <div>Cloudy</div>
+      <div
+        style="margin-right: 2rem; font-size: 2em; font-weight: bold; margin-left: auto"
+      >
         {{ -50 }}
       </div>
     </div>
@@ -37,56 +61,57 @@
 </template>
 
 <script>
-  import Icon from "@/components/Icon";
-  import WeatherService from "@/views/weather/Weather.service.js"
-  
-  export default {
-    name: 'WeatherIcon',
-    components: {
-      Icon
-    },data() {
-      return {
-        weather: new WeatherService(),
-        before: 1,
+import Icon from "@/components/Icon";
+import WeatherService from "@/views/weather/Weather.service.js";
+
+export default {
+  name: "WeatherIcon",
+  components: {
+    Icon,
+  },
+  data() {
+    return {
+      weather: new WeatherService(),
+      before: 1,
+    };
+  },
+  mounted() {
+    setInterval(() => {
+      if (this.before == 3) {
+        this.before = 0;
       }
-    },
-    mounted () {
-      setInterval(()=>{
-        if (this.before==3) {
-          this.before=0;
-        }
-        this.before+=1;
-        
-        },4000);
-    },
-  }
+      this.before += 1;
+    }, 6000);
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 
-.x1x2 {
-  border-radius: 20px;
-}
-
 .smoke {
-  background: rgb(134,134,134);
-  background: linear-gradient(0deg, rgba(134,134,134,0.5620448863139005) 21%, rgba(249,249,249,0.4500000683867297) 100%);
+  background: rgb(134, 134, 134);
+  background: linear-gradient(
+    0deg,
+    rgba(134, 134, 134, 0.5620448863139005) 21%,
+    rgba(249, 249, 249, 0.4500000683867297) 100%
+  );
 }
 
 .screen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   position: absolute;
-  display:flex;
-  width:100%;
-  height:100%;
-  align-items:center;
-  justify-content:space-between;
-  transition: 2s all;
-  transition-timing-function: ease-in-out;
-  border-radius:20px;
+  width: 100%;
+  height: 100%;
+
+  transition: 3s all;
+  transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
 }
 
 .screen1 {
-  background-color:darkcyan;
+  background-color: darkcyan;
   &.before {
     left: 0%;
   }
@@ -96,9 +121,9 @@
 }
 
 .screen2 {
-  background-color:lightblue;
+  background-color: lightblue;
   &.before {
-    top:0;
+    top: 0;
   }
   &.after {
     top: -100%;
@@ -106,12 +131,12 @@
 }
 
 .screen3 {
-  background-color:turquoise;
+  background-color: turquoise;
   &.before {
-    left:0;
+    left: 0;
   }
   &.after {
-    left:-100%;
+    left: -100%;
   }
 }
 </style>

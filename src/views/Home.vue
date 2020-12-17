@@ -2,55 +2,46 @@
   <div id="app">
     <div class="grid">
       <Title class="title" />
-      <Slideshow
-        class="slideshow"
-        :images="slideshowObject"
-      />
+      <Slideshow class="slideshow" :images="slideshowObject" />
     </div>
     <div class="grid">
-      <Icon
-        name="Oracle"
-        action="Oracle"
-      >
-        <img
-          class="main"
-          :src="require(`@/assets/img/surf-avatar-01.png`)"
-        >
+      <Icon name="Oracle" action="Oracle">
+        <img class="main" :src="require(`@/assets/img/surf-avatar-01.png`)" />
       </Icon>
       <Icon class="x2x2">
-        <img
-          class="main"
-          :src="require(`@/assets/img/surf-avatar-04.png`)"
-        >
+        <img class="main" :src="require(`@/assets/img/surf-avatar-04.png`)" />
       </Icon>
       <Icon>
         <div
-          style="display:grid;grid-template-rows:1fr 4fr 1fr;grid-template-columns:100%;width:100%;"
+          style="
+            display: grid;
+            grid-template-rows: 1fr 4fr 1fr;
+            grid-template-columns: 100%;
+            width: 100%;
+          "
         >
-          <div style="background-color:Aquamarine">
-            Header
-          </div>
+          <div style="background-color: Aquamarine">Header</div>
           <div
-            style="display:flex;justify-content:center;align-items:center;background-color:DarkSeaGreen"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: DarkSeaGreen;
+            "
           >
             Body
           </div>
-          <div style="background-color:ForestGreen">
-            Footer
-          </div>
+          <div style="background-color: ForestGreen">Footer</div>
         </div>
       </Icon>
       <div class="card x1" />
       <WeatherIcon></WeatherIcon>
-      <Icon
-        name="owu"
-        class="x1x2"
-      >
+      <Icon name="owu" class="x1x2">
         <img
           class="main"
-          style="object-fit:cover;"
+          style="object-fit: cover"
           :src="require(`@/assets/img/surf-avatar-05.png`)"
-        >
+        />
       </Icon>
       <div class="card x1" />
     </div>
@@ -61,7 +52,7 @@
 import Title from "@/components/Title";
 import Slideshow from "@/components/Slideshow";
 import Icon from "@/components/Icon";
-import WeatherIcon from '@/views/weather/Weather.icon'
+import WeatherIcon from "@/views/weather/Weather.icon";
 
 const slideShowData = [
   { image: "surf-avatar-01.png", header: "Dolphins are cool" },
@@ -75,7 +66,7 @@ export default {
     Title,
     Slideshow,
     Icon,
-    WeatherIcon
+    WeatherIcon,
   },
   data() {
     return {
@@ -88,8 +79,8 @@ export default {
 <style lang="scss">
 @import "../scss/_variables.scss";
 
-$card-size: 110px;
-$grid-gap: 130px;
+$card-size: 100px;
+$grid-gap: 100px;
 
 :root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
