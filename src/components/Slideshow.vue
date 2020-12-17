@@ -114,7 +114,6 @@ export default {
   position: relative;
   background: $primary_color;
   width: 100%;
-  border-radius: 19px;
   height: 100%;
 }
 </style>

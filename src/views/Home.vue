@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <div class="grid">
+    <div class="grid-left">
       <Title class="title" />
       <Slideshow class="slideshow" :images="slideshowObject" />
     </div>
-    <div class="grid">
+    <div class="grid-right">
       <Icon name="Oracle" action="Oracle">
         <img class="main" :src="require(`@/assets/img/surf-avatar-01.png`)" />
       </Icon>
+      <div class="card x1" />
       <Icon class="x2x2">
         <img class="main" :src="require(`@/assets/img/surf-avatar-04.png`)" />
       </Icon>
@@ -36,6 +37,10 @@
       </Icon>
       <div class="card x1" />
       <WeatherIcon></WeatherIcon>
+      <div class="card x1" />
+      <div class="card x1" />
+      <div class="card x1" />
+      <div class="card x1" />
       <Icon name="owu" class="x1x2">
         <img
           class="main"
@@ -43,7 +48,6 @@
           :src="require(`@/assets/img/surf-avatar-05.png`)"
         />
       </Icon>
-      <div class="card x1" />
     </div>
   </div>
 </template>
@@ -79,7 +83,7 @@ export default {
 <style lang="scss">
 @import "../scss/_variables.scss";
 
-$card-size: 100px;
+$card-size: 120px;
 $grid-gap: 100px;
 
 :root {
@@ -89,27 +93,33 @@ $grid-gap: 100px;
 }
 
 #app {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 }
 
-.grid {
+.grid-left, .grid-right {
   display: grid;
   grid-template-rows: repeat(4, $card-size);
-  grid-template-columns: repeat(3, $card-size);
+  grid-template-columns: repeat(4, $card-size);
   row-gap: $grid-gap;
   column-gap: $grid-gap;
   &:not(:last-of-type) {
     margin-right: $grid-gap;
   }
 }
+
+.grid-left {
+  grid-template-columns: repeat(3, $card-size);
+}
+
 .card {
   background-color: #888;
   border-radius: 10px;

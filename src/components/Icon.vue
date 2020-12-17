@@ -67,6 +67,7 @@ export default {
 <style lang="scss" scoped>
 .appContainer {
   border-radius: 6px;
+  box-shadow: #aaa 3px 3px 10px;
   cursor: pointer;
   text-align: center;
 
