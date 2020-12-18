@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="content">
-      Never Gonna' Let You Down
+      Weather - Mountain View
     </div>
   </div>
 </template>
@@ -16,22 +16,27 @@
 @keyframes animateIn {
    from {
       opacity: 0;
+      transform: translateY(30px);
    }
    to {
       opacity: 1;
+      transform: translateY(0px);
    }
 }
 .container {
    background-color: #fff;
+
    position: fixed;
-   width:100vw;
-   height: 100vh;
-   top:0;
-   left:0;
+   top: 0;
+   left: 0;
+
+   width: 90vw;
+   height: 90vh;
+   padding: 5vh 5vw;
 }
 .content {
    color:#555;
-   font-size:10em;
-   animation: animateIn .3s linear forwards;
+   font-size: 3em;
+   animation: animateIn .3s ease-out forwards;
 }
 </style>

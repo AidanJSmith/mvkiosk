@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="appContainer" :data-app-name="Name" @click="route()">
+    <div class="appContainer" :data-app-name="name" @click="route()">
       <div class="appCustomContent">
         <slot />
       </div>
     </div>
     <div class="name">
-      {{ Name }}
+      {{ name }}
     </div>
     <div ref="animation" class="animationContainer" @click="route()">
       <div class="animation"></div>
@@ -18,11 +18,11 @@
 export default {
   name: "Icon",
   props: {
-    Name: {
+    name: {
       type: String,
       default: "Kiosk",
     },
-    Action: {
+    action: {
       type: String,
       default: "App",
     },
@@ -36,18 +36,13 @@ export default {
     // Expands the animation
     route: function () {
       this.undoRoute = !this.undoRoute;
-      if (this.Name == "Kiosk") {
+      if (this.Name == "Kiosk")
         return;
-      }
-      const thisRect = this.$el.getBoundingClientRect();
-      console.log(thisRect);
+        
       this.$refs.animation.classList.toggle("expanded");
-      this.moveRoute = setTimeout(
-        (() => {
-          if (this.undoRoute) this.$router.push({ path: this.Name });
-        }).bind(),
-        600
-      );
+      this.moveRoute = setTimeout((() => {
+        if (this.undoRoute) this.$router.push({ path: this.name });
+      }).bind(), 600);
     },
   },
 };

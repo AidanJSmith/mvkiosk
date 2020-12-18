@@ -16,12 +16,11 @@
       <div
         style="margin-right: 2rem; font-size: 2em; font-weight: bold; margin-left: auto"
       >
-        {{ weather.weather }}
+        <span>{{ weather.weather }} °C</span>
       </div>
     </div>
     <div :class="['screen', 'screen2', before == 2 ? 'before' : 'after']">
       <div
-        class="smoke"
         style="
           margin-left: 2rem;
           height: 4rem;
@@ -88,13 +87,9 @@ export default {
 
 <style lang="scss" scoped>
 
-.smoke {
-  background: rgb(134, 134, 134);
-  background: linear-gradient(
-    0deg,
-    rgba(134, 134, 134, 0.5620448863139005) 21%,
-    rgba(249, 249, 249, 0.4500000683867297) 100%
-  );
+.x1x2 {
+  background-color: gold;
+  border-radius: 6px;
 }
 
 .screen {
@@ -111,7 +106,7 @@ export default {
 }
 
 .screen1 {
-  background-color: darkcyan;
+  background-color: darkorange;
   &.before {
     left: 0%;
   }
@@ -121,7 +116,7 @@ export default {
 }
 
 .screen2 {
-  background-color: lightblue;
+  background-color: skyblue;
   &.before {
     top: 0;
   }
